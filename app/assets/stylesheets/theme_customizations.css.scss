@@ -1,3 +1,24 @@
 .light-header {
-  font-weight: 100;
+  font-weight: 200;
+}
+
+main.content {
+  background-color: #EFEFEF;
+}
+
+.main-content {
+  background-color: white;
+}
+
+.custom-table {
+  border-top: 0;
+  display: inline-block;
+  .custom-row {
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    td {
+      border: 0;
+      margin-top: 3%;
+    }
+  }
 }

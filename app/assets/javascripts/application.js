@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require widgster
 //= require settings
+//= require app
 //= require turbolinks
 //= require jasny-bootstrap
 //= require jquery-pjax
@@ -24,8 +26,8 @@
 //= require gmap
 //= require maps-vector
 //= require messenger
-//= require widgster
 
-//= require app
+
+
 
 //= require_tree .

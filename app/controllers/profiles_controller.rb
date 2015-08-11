@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def show
-
+    render 'users/profile'
   end
 
   def new
