@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+@import "font";
+
+@import "boot_mixins";
+@import "variables";
+@import "mixins";
+
+/*@import "compass";*/
+
+@import "font-awesome/scss/font-awesome";
+@import "animate.css/animate";
+@import "bootstrap-select/dist/css/bootstrap-select";
+@import "select2/select2"; //import as css to keep image urls correct
+@import "select2-bootstrap-css/lib/select2-bootstrap";
+@import "awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+@import "pace.js/themes/pace-theme-minimal";
+
+/*@import "bootstrap-override";*/
+@import "libs-override";
+
+//custom libs. can be removed
+//
+
+@import "rickshaw/rickshaw";
+@import "bootstrap3-wysihtml5/src/bootstrap-wysihtml5";
+@import "switchery/dist/switchery";
+@import "eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker";
+@import "mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker";
+@import "jasny-bootstrap/scss/jasny-bootstrap";
+@import "dropzone/dist/dropzone";
+@import "nvd3/build/nv.d3";
+@import "morris.js/morris";
+@import "jvectormap/jquery-jvectormap-1.2.2";
+@import "bootstrap-application-wizard/src/bootstrap-wizard";
+@import "backgrid/lib/backgrid";
+@import "datatables/media/css/jquery.dataTables";
+@import "messenger/build/css/messenger";
+@import "messenger/build/css/messenger-spinner";
+@import "fullcalendar/fullcalendar";
+@import "magnific-popup/src/css/main";
+@import "MetroJS/release/MetroJs.Full/MetroJs";
+@import "bootstrap-markdown/css/bootstrap-markdown.min";
+
+
+@import "custom-libs-override";
+
+//
+//end custom libs
+
+//everything below this line is required for essential styling
+
+@import "general";
+@import "global-transitions";
+@import "base";
+
+@import "widgets";
+@import "utils";
+@import "print";
