@@ -1,0 +1,17 @@
+<div class="container-fluid root-container">
+  <div class="form-container row">
+    <div class="login-form col-xs-12 col-lg-3 col-xl-3 center-block">
+        <h1 class="login-head col-xs-10 center-block">Sign Up</h1>
+        <h4 class="login-head sub-head col-xs-10 center-block">Have an account? <a class="link" href="#/">Login here</a></h4>
+        <%= form_for :user, url:'/users', html: {class: "login row"} do |f|%>
+          <%= f.text_field :first_name, class: "col-xs-10 center-block", placeholder: "First Name" %>
+          <%= f.text_field :last_name, class: "col-xs-10 center-block", placeholder: "First Name" %>
+          <%= f.text_field :email, class: "col-xs-10 center-block", placeholder:  "Username" %>
+          <%= f.password_field :password, class: "col-xs-10 center-block", placeholder: "Enter password" %>
+          <%= f.password_field :password_confirmation, class: "col-xs-10 center-block", placeholder: "Enter password" %>
+          <div class="buttons col-xs-10 center-block">
+            <%= f.submit "Sign Up", class: "col-xs-3 center-block"%>
+          </div>
+        <% end %>
+  </div>
+</div>
