@@ -8,7 +8,7 @@
     <!-- need this .js class to initiate slimscroll -->
     <div class="js-sidebar-content">
         <header class="logo hidden-xs">
-            <a href=<%= root_path %>>SMU STEM PREP</a>
+            <a href=<%= root_path %>>SMU <span id="side-hide">STEM PREP</span></a>
         </header>
         <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
              looks good, so adding it and enhancing with notifications -->
@@ -30,16 +30,16 @@
         </div>
         <!-- main notification links are placed inside of .sidebar-nav -->
         <ul class="sidebar-nav">
-            <li>
+            <li <%= "class=active" if locals[:page] == 1%>>
                 <a href="inbox.html">
                     <span class="icon">
-                        <i class="fa fa-desktop"></i>
+                        <i class="glyphicon glyphicon-home"></i>
                     </span>
-                    My Profile
+                    Home
                 </a>
             </li>
-            <li class="active">
-                <a href="inbox.html">
+            <li <%= "class=active" if locals[:page] == 2 %>>
+                <a href="/users/<%= locals[:current_user].id %>/profile">
                     <span class="icon">
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
@@ -49,8 +49,8 @@
                     </span>
                 </a>
             </li>
-            <li>
-                <a href="charts.html">
+            <li <%= "class=active" if locals[:page] == 3 %>>
+                <a href="/users/<%= locals[:current_user].id %>/documents">
                     <span class="icon">
                         <i class="glyphicon glyphicon-hdd"></i>
                     </span>
@@ -58,8 +58,8 @@
                 </a>
             </li>
 
-            <li>
-                <a href="charts.html">
+            <li <%= "class=active" if locals[:page] == 4 %>>
+                <a href="/search">
                     <span class="icon">
                         <i class="glyphicon glyphicon-search"></i>
                     </span>

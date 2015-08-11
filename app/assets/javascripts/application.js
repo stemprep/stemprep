@@ -12,13 +12,20 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require settings
 //= require turbolinks
 //= require jasny-bootstrap
 //= require jquery-pjax
 //= require jquery-ui
 //= require d3
 //= require fastclick
+//= require slimScroll
+//= require gmaps
+//= require gmap
+//= require maps-vector
+//= require messenger
 //= require widgster
+
 //= require app
 
 //= require_tree .

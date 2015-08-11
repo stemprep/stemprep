@@ -211,6 +211,7 @@ $(function(){
         $('body').addClass('nav-collapsed');
         this.$sidebar.find('.collapse.in').collapse('hide')
             .siblings('[data-toggle=collapse]').addClass('collapsed');
+        $('#side-hide').hide();
     };
 
     SingAppView.prototype.expandNavigation = function(){
@@ -220,6 +221,7 @@ $(function(){
         $('body').removeClass('nav-collapsed');
         this.$sidebar.find('.active .active').closest('.collapse').collapse('show')
             .siblings('[data-toggle=collapse]').removeClass('collapsed');
+            $('#side-hide').delay(350).fadeIn(500);
     };
 
     SingAppView.prototype._sidebarMouseEnter = function(){

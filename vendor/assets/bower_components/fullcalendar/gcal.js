@@ -3,7 +3,7 @@
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
- 
+
 (function($) {
 
 
@@ -103,7 +103,7 @@ function transformOptions(sourceOptions, start, end) {
 		singleEvents: true,
 		maxResults: 9999
 	});
-	
+
 	if (ctz) {
 		data.timeZone = ctz = ctz.replace(' ', '_');
 	}
@@ -160,7 +160,7 @@ function transformOptions(sourceOptions, start, end) {
 			return events;
 		}
 	});
-	
+
 }
 
 
