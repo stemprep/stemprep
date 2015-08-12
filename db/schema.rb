@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20150811185003) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "program"
+    t.integer  "year"
+    t.string   "building"
+    t.string   "home_town"
     t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
