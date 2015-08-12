@@ -17,13 +17,24 @@
                         <div class="row home-top-stats">
                             <div class="stat-container col-md-12 center-block">
                                 <div class="ind-stat-container col-md-6">
-                                    <section class="widget bg-gray col-md-12 center-block">
-                                        <div class="widget-body"></div>
+                                    <section class="widget stat-left col-md-12 center-block">
+                                        <div class="widget-body">
+                                            <i class="fa fa-globe fa-4x col-md-3"></i>
+                                            <div class="text-container col-md-9">
+                                                <h4 class="row wig-head">TOTAL STUDENTS</h4>
+                                                <h4 class="row wig-head"><%= @student_count %></h4>
+                                            </div>
+                                        </div>
                                     </section>
                                 </div>
                                 <div class="ind-stat-container col-md-6">
-                                    <section class="widget bg-primary col-md-112 center-block">
+                                    <section class="widget stat-right col-md-112 center-block">
                                         <div class="widget-body">
+                                            <i class="glyphicon glyphicon-user col-md-3"></i>
+                                            <div class="text-container col-md-9">
+                                                <h4 class="row wig-head">TOTAL STUDENTS</h4>
+                                                <h4 class="row wig-head"><%= @student_count %></h4>
+                                            </div>
                                         </div>
                                     </section>
                                 </div>
@@ -37,7 +48,7 @@
                     <!-- .widget>header is generally a place for widget title and widget controls. see .widget in _base.scss -->
                     <header>
                         <h5>
-                            USERBASE GROWTH
+                            Student Registrations
                         </h5>
                         <div class="widget-controls">
                             <a href="#"><i class="glyphicon glyphicon-cog"></i></a>
@@ -127,7 +138,7 @@
                 <section class="widget">
                     <header>
                         <h5>
-                            TRAFFIC VALUES
+                            Calendar
                         </h5>
                         <div class="widget-controls">
                             <a href="#"><i class="glyphicon glyphicon-cog"></i></a>

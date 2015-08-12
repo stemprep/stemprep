@@ -206,22 +206,24 @@ $(function(){
 
     SingAppView.prototype.collapseNavigation = function(){
         //this method only makes sense for non-static navigation state
+        $('#side-hide').hide();
         if (this.isNavigationStatic() && (Sing.isScreen('md') || Sing.isScreen('lg'))) return;
 
         $('body').addClass('nav-collapsed');
         this.$sidebar.find('.collapse.in').collapse('hide')
             .siblings('[data-toggle=collapse]').addClass('collapsed');
-        $('#side-hide').hide();
+
     };
 
     SingAppView.prototype.expandNavigation = function(){
         //this method only makes sense for non-static navigation state
+        $('#side-hide').delay(350).toggle();
         if (this.isNavigationStatic() && (Sing.isScreen('md') || Sing.isScreen('lg'))) return;
 
         $('body').removeClass('nav-collapsed');
         this.$sidebar.find('.active .active').closest('.collapse').collapse('show')
             .siblings('[data-toggle=collapse]').removeClass('collapsed');
-            $('#side-hide').delay(350).fadeIn(500);
+
     };
 
     SingAppView.prototype._sidebarMouseEnter = function(){

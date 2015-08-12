@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-
+  has_many :documents
   has_secure_password
+
 
 
   def get_home_route

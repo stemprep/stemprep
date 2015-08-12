@@ -22,10 +22,28 @@
 //= require d3
 //= require fastclick
 //= require slimScroll
-//= require gmaps
-//= require gmap
-//= require maps-vector
+//= require underscore
+//= require backbone
+//= backbone.paginator/lib
+//= require backgrid
+//= require backgrid-paginator
+//= require dropzone
+//= require hide-uploader
 //= require messenger
+
+//= require jquery.upload/jquery.fileupload
+//= require jquery.upload/main
+//= require jquery.upload/jquery.fileupload-process
+//= require jquery.upload/jquery.postmessage-transport
+//= require jquery.upload/jquery.xdr-transport
+
+//= require jquery.upload/jquery.fileupload-ui
+//= require jquery.upload/jquery.fileupload-audio
+//= require jquery.upload/jquery.fileupload-image
+//= require jquery.upload/jquery.fileupload-video
+//= require jquery.upload/jquery.fileupload-validate
+//= require jquery.upload/jquery.iframe-transport
+
 
 
 

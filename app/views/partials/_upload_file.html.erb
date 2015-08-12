@@ -1,0 +1,35 @@
+<%= form_for locals[:document], url: {action: :create}, html: {class: "directUpload"} do |f| %>
+    <% if @errors %>
+    <div class="error-container"></div>
+    <%end%>
+
+    <label class="vis-label btn btn-primary btn-md col-md-1">
+        <%= f.file_field :file, class: "file-up" %>
+        Upload document
+    </label>
+        <%= f.submit 'submit', class: "btn btn-inverse btn-md sub-doc col-md-1"%>
+<% end%>
+
+
+
+<!-- <section class="widget" id="upload-form">
+    <header>
+        <h5>
+            <strong>Drop</strong> Zone
+        </h5>
+        <div class="widget-controls">
+            <a class="bg-gray-transparent" href="#"><i class="glyphicon glyphicon-cog text-white"></i></a>
+            <a href="#"><i class="fa fa-refresh"></i></a>
+            <a href="#" data-widgster="close" id="close-upload"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+    </header>
+    <div class="widget-body">
+        <form class="dropzone" action="#" id="my-awesome-dropzone">
+            <div class="dz-message">
+                <p class="mb-xs fw-normal">Drop files here or click to upload.</p>
+                <p class="text-muted fs-mini">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</p>
+            </div>
+        </form>
+    </div>
+</section>
+ -->

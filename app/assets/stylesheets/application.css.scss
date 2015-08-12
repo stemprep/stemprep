@@ -100,6 +100,33 @@
 
 .stat-container {
   float: none;
+
+  .stat-left {
+    background-color: #487BB6;
+    height: 15em;
+    max-height: 15em;
+    .fa-globe {
+      color: #9DBADA;
+    }
+    .wig-head {
+      color: white;
+      font-weight: 200;
+      margin-top: 0;
+      padding:0;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+  }
+  .stat-right {
+    height: 15em;
+    max-height: 15em;
+    background-color: #4DB8B1;
+    color: white;
+    font-weight: 200;
+    .glyphicon.glyphicon-user {
+      font-size: 4em;
+    }
+  }
 }
 .header-data {
   font-weight: 700;
@@ -109,4 +136,21 @@
 
 .info-data {
   float: right;
+}
+
+.directUpload {
+  .vis-label {
+    cursor: pointer;
+    text-align: center;
+    margin-right: 2em;
+  }
+  input[type="file"] {
+    display: none;
+  }
+}
+
+
+section.widget.bg-transparent {
+  margin-bottom: 0;
+  padding: 0;
 }
