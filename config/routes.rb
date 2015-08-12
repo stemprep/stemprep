@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'sessions#new'
+  resources :sessions, only: [:create, :destroy]
   resources :users do
     resource :profile
     resources :documents, only: [:create, :destroy, :show, :index]
   end
-  resources :sessions, only: [:create, :destroy]
+
   namespace :admin do
     resources :users
   end

@@ -1628,7 +1628,7 @@ var dateFormatters = {
 	dddd: function(d,o)	{ return o.dayNames[d.getDay()] },
 	M	: function(d)	{ return d.getMonth() + 1 },
 	MM	: function(d)	{ return zeroPad(d.getMonth() + 1) },
-	MMM	: function(d,o)	{ return o.monthNamesShort[d.getMonth()] },
+	MMM	: function(d,o)	{return o.monthNamesShort[d.getMonth()] },
 	MMMM: function(d,o)	{ return o.monthNames[d.getMonth()] },
 	yy	: function(d)	{ return (d.getFullYear()+'').substring(2) },
 	yyyy: function(d)	{ return d.getFullYear() },

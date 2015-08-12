@@ -19,7 +19,16 @@
 //= require jasny-bootstrap
 //= require jquery-pjax
 //= require jquery-ui
+
 //= require d3
+//= require jquery-ui/ui/datepicker
+//= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
+// require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
+// require fullcalendar
+// require calendar
+
+
+
 //= require fastclick
 //= require slimScroll
 //= require underscore
@@ -30,6 +39,7 @@
 //= require dropzone
 //= require hide-uploader
 //= require messenger
+
 
 //= require jquery.upload/jquery.fileupload
 //= require jquery.upload/main

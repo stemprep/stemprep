@@ -205,7 +205,7 @@
                         <li><a href="#">Calendar</a></li>
                         <li><a href="#">Inbox &nbsp;&nbsp;<span class="badge bg-danger animated bounceIn">9</span></a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out"></i> &nbsp; Log Out</a></li>
+                        <li><i class="fa fa-sign-out"></i><%= button_to("Log out", session_path, method: :delete, class: "logout") %></li>
                     </ul>
                 </li>
                 <li>
