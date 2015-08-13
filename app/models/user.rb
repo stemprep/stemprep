@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
 
 
+
   def get_home_route
     if self.admin
       "/admin/users/#{self.id}"
