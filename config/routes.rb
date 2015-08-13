@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
   resources :sessions, only: [:create, :destroy]
   resources :users do
+    resources :events
     resource :profile
     resources :documents, only: [:create, :destroy, :show, :index]
   end

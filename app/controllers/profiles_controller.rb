@@ -12,6 +12,10 @@ class ProfilesController < ApplicationController
 
   end
 
+  def edit
+    render 'users/edit_profile'
+  end
+
   def update
 
   end

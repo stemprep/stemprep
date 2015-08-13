@@ -1,0 +1,57 @@
+<%= render "partials/sidebar", locals: {current_user: current_user, page: 2} %>
+<%= render "partials/headerbar", locals: {current_user: current_user, page: 2} %>
+<%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 2} %>
+
+<div class="content-wrap">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li class="active">Profile</li>
+        </ol>
+        <h1 class="page-title light-header">My Profile <%= link_to("Edit", "/users/#{current_user.id}/profile/edit", class: "btn btn-primary btn-md") %></h1>
+
+
+        <div class="row">
+          <div class="col-md-12 main-content">
+            <section class="widget col-xs-12">
+              <div class="widget-content col-xs-12">
+                <%= image_tag("a5.jpg", class: "profile-image col-md-2" ) %>
+                <table class="table custom-table col-md-3 col-xs-12">
+                  <tbody class="row">
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data">NAME:</td>
+                      <td class="info-data"><%="#{current_user.first_name }" + " " "#{current_user.last_name}" %></td>
+                    </tr>
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data">PROGRAM:</td>
+                      <td class="info-data"><%="#{current_user.program}"%></td>
+                    </tr>
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data">FROM:</td>
+                      <td class="info-data"><%="#{current_user.home_town}"%></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table custom-table col-md-3">
+                  <tbody class="row">
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data">YEAR:</td>
+                      <td class="info-data"><%="#{current_user.year}"%></td>
+                    </tr>
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data">BUILDING:</td>
+                      <td class="info-data"><%="#{current_user.building}"%></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            </div>
+          </div>
+
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
