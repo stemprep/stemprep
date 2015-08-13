@@ -125,10 +125,14 @@
     height: 15em;
     max-height: 15em;
     background-color: #4DB8B1;
-    color: white;
     font-weight: 200;
+    color: white;
     .glyphicon.glyphicon-user {
+      color: #9EDAD7;
       font-size: 4em;
+    }
+    .wig-head {
+      font-weight: 200;
     }
   }
 }

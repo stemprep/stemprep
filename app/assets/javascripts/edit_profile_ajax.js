@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
   $(".edit-input").hide();
   $(".edit-user-profile").click(function(event) {
     event.preventDefault();
