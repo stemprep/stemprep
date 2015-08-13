@@ -1,4 +1,6 @@
 $(function(){
+    var userEvents = [];
+
     function pageLoad(){
         $('#external-events').find('div.external-event').each(function() {
 
@@ -20,10 +22,14 @@ $(function(){
 
         });
 
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
+
+
+
         var $calendar = $('#calendar').fullCalendar({
             header: {
                 left: '',
@@ -46,9 +52,10 @@ $(function(){
                                 start: start,
                                 end: end,
                                 allDay: allDay,
-                                backgroundColor: '#64bd63',
+                                backgroundColor: '#79A5F0',
                                 textColor: '#fff'
                             },
+
                             true
                         );
                     }
@@ -85,34 +92,7 @@ $(function(){
             },
 
             // US Holidays
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1),
-                    backgroundColor: '#79A5F0',
-                    textColor: '#fff'
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d+5),
-                    end: new Date(y, m, d+7)
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d-3, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Click for Flatlogic',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://flatlogic.com/',
-                    backgroundColor: '#e5603b',
-                    textColor: '#fff'
-                }
-            ],
-
+            events: userEvents,
             eventClick: function(event) {
                 // opens events in a popup window
                 if (event.url){
@@ -133,6 +113,7 @@ $(function(){
                     $modal.modal('show');
                 }
             }
+
 
         });
 
@@ -171,6 +152,40 @@ $(function(){
             );
         });
     }
-    pageLoad();
-    SingApp.onPageLoad(pageLoad);
+
+
+    function getEvents () {
+            var urlId = $(".widget-calendar").attr('id');
+            $.ajax({
+                url: '/users/' + urlId + '/events',
+                type: 'GET',
+                dataType: 'JSON',
+                data: null,
+            })
+            .done(function(response) {
+                response.forEach(function(index, el) {
+                    var eventObject = {
+                        title: index.title,
+                        start: new Date(index.start_time),
+                        end: new Date(index.end_time),
+                        backgroundColor: '#64bd63',
+                        textColor: 'fff'
+                    };
+                    userEvents.push(eventObject);
+
+                });
+                console.log("success" + userEvents);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                pageLoad();
+                SingApp.onPageLoad(pageLoad);
+                console.log("complete");
+                console.log(userEvents);
+            });
+        };
+        getEvents();
+
 });

@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
-    render 'sessions/index'
+    if current_user
+      redirect_to current_user.get_home_route
+    else
+      render 'sessions/index'
+    end
+
   end
 
   def create

@@ -19,6 +19,7 @@
 //= require jasny-bootstrap
 //= require jquery-pjax
 //= require jquery-ui
+//= require edit_profile_ajax
 
 //= require d3
 //= require jquery-ui/ui/datepicker
