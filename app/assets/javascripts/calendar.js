@@ -143,9 +143,9 @@ $(function(){
         var currentDate = $calendar.fullCalendar('getDate');
 
         $('#calender-current-date').html(
-                $.fullCalendar.formatDate(currentDate, "MMM yyyy") +
+                moment(currentDate).format("YYYY/MM/DD") +
                 " - <span class='fw-semi-bold'>" +
-                $.fullCalendar.formatDate(currentDate, "dddd") +
+                moment(currentDate).format("dddd") +
                 "</span>"
         );
 

@@ -23,9 +23,13 @@
 //= require d3
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
-// require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
-// require fullcalendar
-// require calendar
+
+//= require moment.min
+//= require fullcalendar.min
+//= require gcal
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
+
+//= require calendar
 
 
 
@@ -39,6 +43,11 @@
 //= require dropzone
 //= require hide-uploader
 //= require messenger
+//= require flot/jquery.flot
+//= require flot/jquery.flot.canvas
+//= require flot/jquery.flot.resize
+//= require flot/jquery.flot.time
+//= require flot.animator/jquery.flot.animator
 
 
 //= require jquery.upload/jquery.fileupload

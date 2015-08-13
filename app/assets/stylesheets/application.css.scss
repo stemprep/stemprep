@@ -32,6 +32,7 @@
 @import "select2-bootstrap-css/lib/select2-bootstrap";
 @import "awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
 @import "pace.js/themes/pace-theme-minimal";
+@import "fullcalendar.min";
 
 /*@import "bootstrap-override";*/
 @import "libs-override";
@@ -113,9 +114,12 @@
       font-weight: 200;
       margin-top: 0;
       padding:0;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       margin-bottom: 5px;
     }
+  }
+  .left-bottom {
+    margin-top: 1em;
   }
   .stat-right {
     height: 15em;
@@ -153,4 +157,8 @@
 section.widget.bg-transparent {
   margin-bottom: 0;
   padding: 0;
+}
+
+.widget.widget-calendar {
+  margin-top: 2em;
 }

@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @student_count = User.where(admin: false).length
+    @student_count = User.all.length
+    @visit_count
     render 'welcome/index'
   end
 
