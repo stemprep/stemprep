@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :documents
   has_many :events
+  has_many :posts
+  has_many :comments
   has_secure_password
 
 

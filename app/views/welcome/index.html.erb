@@ -94,51 +94,24 @@
             <div class="col-md-6">
                 <section class="widget">
                     <header>
-                        <h5><span class="label label-danger">New</span> Messages</h5>
+                        <h5>From the forum</h5>
                         <div class="widget-controls">
-                            <a href="#"><i class="fa fa-refresh"></i></a>
-                            <a href="#" data-widgster="close"><i class="glyphicon glyphicon-remove"></i></a>
                         </div>
                     </header>
                     <div class="widget-body no-padding">
-                        <div class="list-group list-group-lg">
-                            <a class="list-group-item" href="#">
-                                <span class="thumb-sm pull-left mr">
-                                    <img class="img-circle" src="demo/img/people/a2.jpg" alt="...">
-                                    <i class="status status-bottom bg-success"></i>
-                                </span>
-                                <h5 class="no-margin">Chris Gray</h5>
-                                <p class="help-block text-ellipsis no-margin">Hey! What's up? So many times since we</p>
+                      <div class="list-group list-group-lg">
+                        <% @recent_posts.each do |post| %>
+                          <a class="list-group-item" href="#">
+                            <span class="thumb-sm pull-left mr">
+                                <!-- <img class="img-circle" src="demo/img/people/a2.jpg" alt="..."> -->
+                                    <!-- <i class="status status-bottom bg-success"></i> -->
+                            </span>
+                              <h5 class="no-margin"><%= post.title %></h5>
+                              <p class="help-block text-ellipsis no-margin"><%= truncate(post.body, length: 50) %></p>
                             </a>
-                            <a class="list-group-item" href="#">
-                                <span class="thumb-sm pull-left mr">
-                                    <img class="img-circle" src="demo/img/people/a4.jpg" alt="...">
-                                    <i class="status status-bottom bg-success"></i>
-                                </span>
-                                <h5 class="no-margin">Jamey Brownlow</h5>
-                                <p class="help-block text-ellipsis no-margin">Good news coming tonight. Seems they agreed to proceed</p>
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <span class="thumb-sm pull-left mr">
-                                    <img class="img-circle" src="demo/img/people/a1.jpg" alt="...">
-                                    <i class="status status-bottom bg-warning"></i>
-                                </span>
-                                <h5 class="no-margin">Livia Walsh</h5>
-                                <p class="help-block text-ellipsis no-margin">Check my latest email plz!</p>
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <span class="thumb-sm pull-left mr">
-                                    <img class="img-circle" src="demo/img/people/a5.jpg" alt="...">
-                                    <i class="status status-bottom bg-danger"></i>
-                                </span>
-                                <h5 class="no-margin">Jaron Fitzroy</h5>
-                                <p class="help-block text-ellipsis no-margin">What about summer break?</p>
-                            </a>
+                          <% end %>
                         </div>
                     </div>
-                    <footer class="bg-body-light mt">
-                        <input type="search" class="form-control input-sm" placeholder="Search">
-                    </footer>
                 </section>
             </div>
 

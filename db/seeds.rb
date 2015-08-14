@@ -8,6 +8,8 @@
 
 new_user = User.create!(first_name: "Jim", last_name: "Joyce", username: "jjoyce1", password: "pass", password_confirmation: "pass", home_town: "Westmont", year: 2015, program: "Super dope program", building: "B")
 
+second_user = User.create!(first_name: "Jim", last_name: "Joyce", username: "jim", password: "pass", password_confirmation: "pass", home_town: "Chicago", year: 2015, program: "Everything", building: "F")
+
 new_user.events.create!(title: "My Event",
                         all_day: false,
                         start_time: DateTime.now,
@@ -34,3 +36,17 @@ new_user.events.create!(title: "Paper due",
                         editable: true,
                         start_editable: true,
                         duration_editable: true)
+
+first_post = new_user.posts.create!(title: "Help with research", body: "I don't know what science is please help")
+
+second_user.comments.create!(body: "I don't know either, this stuff is hard...", post_id: first_post.id)
+
+new_user.comments.create!(body: "Well thanks for nothing.", post_id: first_post.id)
+
+20.times do
+  new_user.posts.create!(title: Faker::Hacker.say_something_smart, body: Faker::Lorem.paragraph)
+end
+
+new_user.posts.each do |post|
+  post.comments.create!(body: Faker::Lorem.paragraph, user_id: 2)
+end

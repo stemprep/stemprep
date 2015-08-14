@@ -59,6 +59,15 @@
             </li>
 
             <li <%= "class=active" if locals[:page] == 4 %>>
+                <a href="/forum">
+                    <span class="icon">
+                        <i class="fa fa-comment"></i>
+                    </span>
+                    Forum
+                </a>
+            </li>
+
+            <li <%= "class=active" if locals[:page] == 5 %>>
                 <a href="/search">
                     <span class="icon">
                         <i class="glyphicon glyphicon-search"></i>

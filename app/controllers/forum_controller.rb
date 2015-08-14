@@ -1,6 +1,6 @@
-class FormController < ApplicationController
+class ForumController < ApplicationController
 
-  def index
+  def show
     @posts = Post.all.order(created_at: :desc)
     render 'forum/index'
   end

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @student_count = User.all.length
     @visit_count
+    @recent_posts = Post.all.order(created_at: :desc).limit(5)
     redirect_to home_route if current_user == nil
     render 'welcome/index'
   end
