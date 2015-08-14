@@ -21,10 +21,8 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    require 'pry'
-    binding.pry
-    session[:user_id] = nil
-    redirect_to 'sessions#new'
+    session.clear
+    redirect_to '/'
   end
 
 end
