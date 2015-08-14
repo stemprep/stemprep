@@ -171,3 +171,18 @@ section.widget.bg-transparent {
   float: right;
   display: none;
 }
+
+@keyframes spinLoader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-spin-fast {
+  animation: .4s spinLoader linear;
+  animation-iteration-count: infinite;
+}

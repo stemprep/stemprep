@@ -4,8 +4,15 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'sessions#new'
+
   resources :sessions, only: [:create, :destroy]
+  get '/forum' => 'forum#show'
+  get '/logout' => 'sessions#destroy'
+
+
   resources :users do
+    resources :posts, only: [:create, :destroy, :index, :show]
+    resources :comments, only: [:create, :destroy]
     resources :events
     resource :profile
     resources :documents, only: [:create, :destroy, :show, :index]
