@@ -141,9 +141,78 @@
             </div>
 
         </div>
-
+<!-- calendar event popup -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-border">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title fw-bold mt" id="editModalLabel">Edit Event</h4>
+            </div>
+            <div class="modal-body">
+                <p id="eventDescription"></p>
+            </div>
+            <div class="modal-footer no-border">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- new event modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel18" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header no-border">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title fw-bold mt" id="myModalLabel18">New Event</h4>
+                <p class="fs-mini text-muted mt-sm">
+                    Just enter event name to create a new one
+                </p>
+            </div>
+            <div class="modal-body bg-gray-lighter">
+                <div class="form-group">
+                    <input type="text" id="event-name" class="form-control input-no-border"
+                           placeholder="Name">
+                    <select id="startTimeSelector" class="form-control">
+                      <option value="1">1:00 am</option>
+                      <option value="2">2:00 am</option>
+                      <option value="3">3:00 am</option>
+                      <option value="4">4:00 am</option>
+                      <option value="5">5:00 am</option>
+                      <option value="6">6:00 am</option>
+                      <option value="7">7:00 am</option>
+                      <option value="8">8:00 am</option>
+                      <option value="9">9:00 am</option>
+                      <option value="10">10:00 am</option>
+                      <option value="11">11:00 am</option>
+                      <option value="12">12:00 pm</option>
+                      <option value="13:00">1:00 pm</option>
+                      <option value="14:00">2:00 pm</option>
+                      <option value="15:00">3:00 pm</option>
+                      <option value="16:00">4:00 pm</option>
+                      <option value="17:00">5:00 pm</option>
+                      <option value="18:00">6:00 pm</option>
+                      <option value="19:00">7:00 pm</option>
+                      <option value="20:00">8:00 pm</option>
+                      <option value="21:00">9:00 pm</option>
+                      <option value="22:00">10:00 pm</option>
+                      <option value="23:00">11:00 pm</option>
+                      <option value="00:00">12:00 am</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer no-border">
+                <button data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button data-dismiss="modal" id="create-event" class="btn btn-success">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
 
 <!-- The Loader. Is shown when pjax happens -->
 <div class="loader-wrap hiding hide">
     <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+
+
 </div>

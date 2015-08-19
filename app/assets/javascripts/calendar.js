@@ -42,10 +42,20 @@ $(function(){
             select: function(start, end, allDay) {
                 var $modal = $("#edit-modal"),
                     $btn = $('#create-event');
+                    debugger
                 $btn.off('click');
                 $btn.click(function () {
                     var title = $("#event-name").val();
+                    var requestStart = start.utc().toDate();
+                    var requestEnd = end.utc().toDate();
+                    debugger
                     if (title) {
+                        // var startSel = $("#startTimeSelector");
+                        // var startSelection = startSel.options[startSel.selectedIndex].value);
+
+                        var serverEvent = new ServerEvent(title, requestStart,
+                            requestEnd, null, allDay);
+                        // serverEvent.createEvent();
                         $calendar.fullCalendar('renderEvent',
                             {
                                 title: title,
@@ -58,6 +68,9 @@ $(function(){
 
                             true
                         );
+                        // ajax me here
+
+
                     }
                     $calendar.fullCalendar('unselect');
                 });
@@ -91,23 +104,26 @@ $(function(){
 
             },
 
-            // US Holidays
+            // Event array from server
             events: userEvents,
             eventClick: function(event) {
+                var dateStart = event.start.toDate();
+                var dateEnd = event.end.toDate();
+                // debugger
                 // opens events in a popup window
                 if (event.url){
                     window.open(event.url, 'gcalevent', 'width=700,height=600');
                     return false
                 } else {
-                    var $modal = $("#myModal"),
-                        $modalLabel = $("#myModalLabel");
+                    var $modal = $("#editModal"),
+                        $modalLabel = $("#editModalLabel");
                     $modalLabel.html(event.title);
-                    $modal.find(".modal-body p").html(function(){
+                    $modal.find("#eventDescription").html(function(){
                         if (event.allDay){
                             return "All day event"
                         } else {
-                            return "Start At: <strong>" + event.start.getHours() + ":" + (event.start.getMinutes() == 0 ? "00" : event.start.getMinutes()) + "</strong></br>"
-                                + (event.end == null ? "" : "End At: <strong>" + event.end.getHours() + ":" + (event.end.getMinutes() == 0 ? "00" : event.end.getMinutes()) + "</strong>")
+                            return "Start At: <strong>" + dateStart.getHours() + ":" + (dateStart.getMinutes() == 0 ? "00" : dateStart.getMinutes()) + "</strong></br>"
+                                + (dateEnd == null ? "" : "End At: <strong>" + dateEnd.getHours() + ":" + (dateEnd.getMinutes() == 0 ? "00" : dateEnd.getMinutes()) + "</strong>")
                         }
                     }());
                     $modal.modal('show');
@@ -164,13 +180,18 @@ $(function(){
             })
             .done(function(response) {
                 response.forEach(function(index, el) {
+
                     var eventObject = {
                         title: index.title,
-                        start: new Date(index.start_time),
-                        end: new Date(index.end_time),
+                        start: index.start_time,
+                        end: index.end_time,
+                        allDay: false,
                         backgroundColor: '#64bd63',
                         textColor: 'fff'
                     };
+                    // debugger
+                    // eventObject.start.toDate();
+                    // eventObject.end.toDate();
                     userEvents.push(eventObject);
 
                 });
