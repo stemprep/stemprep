@@ -1,10 +1,15 @@
 var ServerEvent = function (title, startTime, endTime, url, allDay) {
   var self = this;
   self.title = title;
-  self.start_time = startTime;
+  self.start_time = formatUtcDate(startTime);
+  debugger
   self.end_time = endTime;
   self.url = "no url";
   self.all_day = allDay;
+
+  function formatUtcDate (date) {
+    return moment(date).utc().toDate();
+  }
 };
 
 ServerEvent.prototype.createEvent = function() {
@@ -37,3 +42,4 @@ ServerEvent.prototype.createEvent = function() {
   });
 
 };
+

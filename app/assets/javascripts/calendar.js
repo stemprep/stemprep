@@ -42,13 +42,12 @@ $(function(){
             select: function(start, end, allDay) {
                 var $modal = $("#edit-modal"),
                     $btn = $('#create-event');
-                    debugger
                 $btn.off('click');
                 $btn.click(function () {
                     var title = $("#event-name").val();
                     var requestStart = start.utc().toDate();
                     var requestEnd = end.utc().toDate();
-                    debugger
+
                     if (title) {
                         // var startSel = $("#startTimeSelector");
                         // var startSelection = startSel.options[startSel.selectedIndex].value);
