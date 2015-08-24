@@ -23,7 +23,7 @@
 //= require jquery-pjax
 //= require jquery-ui
 //= require moment
-//= require fullcalendar
+//= require fullcalendar.min
 //= require gcal
 //= require calendarAjax
 
@@ -80,4 +80,4 @@
 
 //= require app
 
-//= require_tree .
+// require_tree .
