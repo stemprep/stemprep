@@ -8,15 +8,19 @@ class EventsController < ApplicationController
   end
 
   def create
-
+    user_start = Time.at(params[:event][:start_time].to_i / 1000).to_datetime
+    user_end = Time.at(params[:event][:end_time].to_i / 1000).to_datetime
+    # require 'pry'
+    # binding.pry
     event = current_user.events.new(event_params)
-
+    event.start_time = user_start
+    event.end_time = user_end
     if event.save
       puts "<><><><><><><><><>><><><><><><><><><><><><><><><><><><><><><><><><>><><><"
       puts "event saved:"
       puts event
-      require 'pry'
-      binding.pry
+      # require 'pry'
+      # binding.pry
       puts "<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>><><><><"
     end
   end
@@ -27,6 +31,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:start_time, :end_time, :title, :url, :all_day)
   end
+
 
 
 

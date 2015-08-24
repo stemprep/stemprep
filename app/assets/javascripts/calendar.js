@@ -45,16 +45,22 @@ $(function(){
                 $btn.off('click');
                 $btn.click(function () {
                     var title = $("#event-name").val();
-                    var requestStart = start.utc().toDate();
-                    var requestEnd = end.utc().toDate();
+
+                    // var requestStart = start.utc().toDate();
+                    // var requestEnd = end.utc().toDate();
 
                     if (title) {
-                        // var startSel = $("#startTimeSelector");
-                        // var startSelection = startSel.options[startSel.selectedIndex].value);
-
-                        var serverEvent = new ServerEvent(title, requestStart,
-                            requestEnd, null, allDay);
-                        // serverEvent.createEvent();
+                        var startSel = $("#startTimeSelector").val();
+                        var endSel = $("#endTimeSelector").val();
+                        var userStart = new Date(start.year(), start.month(), start.date(), parseInt(startSel)).getTime();
+                        var userEnd = new Date(end.year(),
+                                            end.month(),
+                                            start.date(),
+                                            parseInt(endSel)).getTime();
+                        debugger
+                        var serverEvent = new ServerEvent(title, userStart,
+                            userEnd, null, false);
+                        serverEvent.createEvent();
                         $calendar.fullCalendar('renderEvent',
                             {
                                 title: title,
@@ -179,11 +185,11 @@ $(function(){
             })
             .done(function(response) {
                 response.forEach(function(index, el) {
-
+                    // debugger
                     var eventObject = {
                         title: index.title,
-                        start: index.start_time,
-                        end: index.end_time,
+                        start: moment(index.start_time),
+                        end: moment(index.end_time),
                         allDay: false,
                         backgroundColor: '#64bd63',
                         textColor: 'fff'

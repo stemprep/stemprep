@@ -1,8 +1,8 @@
 var ServerEvent = function (title, startTime, endTime, url, allDay) {
   var self = this;
   self.title = title;
-  self.start_time = formatUtcDate(startTime);
-  debugger
+  self.start_time = startTime;
+  // debugger
   self.end_time = endTime;
   self.url = "no url";
   self.all_day = allDay;
@@ -23,8 +23,8 @@ ServerEvent.prototype.createEvent = function() {
       event:
         {
           title: self.title,
-          start_time: JSON.stringify(self.start_time),
-          end_time: JSON.stringify(self.end_time),
+          start_time: self.start_time,
+          end_time: self.end_time,
           url: self.url,
           all_day: JSON.stringify(false)
         }
