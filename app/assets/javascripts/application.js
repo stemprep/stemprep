@@ -22,9 +22,9 @@
 //= require jasny-bootstrap
 //= require jquery-pjax
 //= require jquery-ui
-//= require moment
+//= require moment.js
 //= require fullcalendar.min
-//= require gcal
+// require gcal
 //= require calendarAjax
 
 
