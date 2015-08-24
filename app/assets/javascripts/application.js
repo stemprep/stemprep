@@ -28,7 +28,7 @@
 //= require calendarAjax
 //= require moment
 //= require gcal
-//= require fullcalendar
+//= require fullcalendar.min
 
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 
