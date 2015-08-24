@@ -21,6 +21,7 @@
 //= require jasny-bootstrap
 //= require jquery-pjax
 //= require jquery-ui
+//= require moment
 //= require edit_profile_ajax
 
 
@@ -30,7 +31,7 @@
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
 
 //= require calendarAjax
-//= require moment
+
 //= require gcal
 //= require fullcalendar
 
