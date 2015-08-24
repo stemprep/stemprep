@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require slimScroll/jquery.slimscroll.min
+//= require slimScroll/jquery.slimscroll.js
+
 //= require widgster
 //= require settings
 //= require app
@@ -32,7 +33,7 @@
 //= require moment
 
 //= require fullcalendar
-//= require gcal
+// require gcal
 
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 
