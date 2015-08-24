@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require slimScroll/jquery.slimscroll.js
+
 
 //= require widgster
 //= require settings
@@ -42,7 +42,7 @@
 
 
 //= require fastclick
-
+//= require slimScroll/jquery.slimscroll
 //= require underscore
 //= require backbone
 //= backbone.paginator/lib
