@@ -21,6 +21,8 @@
 //= require jquery-ui
 //= require edit_profile_ajax
 
+//= require slimScroll/jquery.slimscroll
+
 //= require d3
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
@@ -37,7 +39,7 @@
 
 
 //= require fastclick
-//= require slimScroll
+
 //= require underscore
 //= require backbone
 //= backbone.paginator/lib
