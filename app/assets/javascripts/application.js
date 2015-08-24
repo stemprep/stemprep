@@ -16,7 +16,7 @@
 
 //= require widgster
 //= require settings
-//= require app
+
 //= require turbolinks
 //= require jasny-bootstrap
 //= require jquery-pjax
@@ -73,6 +73,6 @@
 
 
 
-
+//= require app
 
 //= require_tree .
