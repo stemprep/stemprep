@@ -13,7 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 
-
+// ----------------------- DO NOT CHANGE THE ORDER OF THE REQUIRES. ----------------------------
 
 //= require widgster
 //= require settings
@@ -26,6 +26,9 @@
 //= require fullcalendar.min
 // require gcal
 //= require calendarAjax
+
+// ----------------------- DO NOT CHANGE THE ORDER OF THE REQUIRES. ----------------------------
+
 
 
 //= require edit_profile_ajax
