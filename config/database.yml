@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: smu_text_production
-  username: smu_text
-  password: <%= ENV['SMU_TEXT_DATABASE_PASSWORD'] %>
+  database: smu_production
+  username: smu
+  password: <%= ENV['SMU_DATABASE_PASSWORD'] %>
