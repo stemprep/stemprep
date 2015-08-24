@@ -1,6 +1,6 @@
 $(function(){
     var userEvents = [];
-
+    getEvents();
     function pageLoad(){
         $('#external-events').find('div.external-event').each(function() {
 
@@ -208,6 +208,6 @@ $(function(){
                 console.log(userEvents);
             });
         };
-        getEvents();
+
 
 });
