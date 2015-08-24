@@ -25,11 +25,12 @@
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
 
-//= require calendarAjax
+
 //= require moment
+
 //= require gcal
 //= require fullcalendar
-
+//= require calendarAjax
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 
 //= require calendar
