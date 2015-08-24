@@ -57,7 +57,6 @@ $(function(){
                                             end.month(),
                                             start.date(),
                                             parseInt(endSel)).getTime();
-                        debugger
                         var serverEvent = new ServerEvent(title, userStart,
                             userEnd, null, false);
                         serverEvent.createEvent();
@@ -73,9 +72,6 @@ $(function(){
 
                             true
                         );
-                        // ajax me here
-
-
                     }
                     $calendar.fullCalendar('unselect');
                 });

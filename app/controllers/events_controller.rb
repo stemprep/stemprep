@@ -10,8 +10,6 @@ class EventsController < ApplicationController
   def create
     user_start = Time.at(params[:event][:start_time].to_i / 1000).to_datetime
     user_end = Time.at(params[:event][:end_time].to_i / 1000).to_datetime
-    # require 'pry'
-    # binding.pry
     event = current_user.events.new(event_params)
     event.start_time = user_start
     event.end_time = user_end
@@ -19,8 +17,6 @@ class EventsController < ApplicationController
       puts "<><><><><><><><><>><><><><><><><><><><><><><><><><><><><><><><><><>><><><"
       puts "event saved:"
       puts event
-      # require 'pry'
-      # binding.pry
       puts "<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>><><><><"
     end
   end

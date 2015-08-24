@@ -2,7 +2,6 @@ var ServerEvent = function (title, startTime, endTime, url, allDay) {
   var self = this;
   self.title = title;
   self.start_time = startTime;
-  // debugger
   self.end_time = endTime;
   self.url = "no url";
   self.all_day = allDay;
