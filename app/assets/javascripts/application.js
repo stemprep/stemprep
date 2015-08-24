@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 
 
+
 //= require widgster
 //= require settings
 
@@ -22,6 +23,11 @@
 //= require jquery-pjax
 //= require jquery-ui
 //= require moment
+//= require fullcalendar
+//= require gcal
+//= require calendarAjax
+
+
 //= require edit_profile_ajax
 
 
@@ -30,10 +36,8 @@
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
 
-//= require calendarAjax
 
-//= require gcal
-//= require fullcalendar
+
 
 
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
