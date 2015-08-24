@@ -14,7 +14,7 @@ var ServerEvent = function (title, startTime, endTime, url, allDay) {
 ServerEvent.prototype.createEvent = function() {
   var self = this;
   $.ajax({
-    url: '/users/' + $(".widget-calendar").attr('id') + '/events',
+    url: './' + $(".widget-calendar").attr('id') + '/events',
     type: 'POST',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data:
