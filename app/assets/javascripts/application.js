@@ -25,9 +25,8 @@
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
 
-
-//= require moment
 //= require calendarAjax
+//= require moment
 //= require gcal
 //= require fullcalendar
 
