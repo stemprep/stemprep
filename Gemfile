@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'faker'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
