@@ -35,6 +35,7 @@ gem 'pry'
 gem 'faker'
 
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'aws-sdk'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
