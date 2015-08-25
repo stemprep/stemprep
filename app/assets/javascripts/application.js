@@ -79,8 +79,10 @@
 //= require jquery.upload/jquery.fileupload-validate
 //= require jquery.upload/jquery.iframe-transport
 
-
+//= require fileUpload
 
 //= require app
 
 // require_tree .
+
+

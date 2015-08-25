@@ -1,3 +1,4 @@
+<%# javascript_include_tag 'fileUpload', 'data-turbolinks-track' => true %>
 <%= render "partials/sidebar", locals: {current_user: current_user, page: 3} %>
 <%= render "partials/headerbar", locals: {current_user: current_user, page: 3} %>
 <%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
@@ -11,7 +12,7 @@
         <div class="head-container row">
             <h1 class="page-title header-light col-md-2" id="documents-header">My Documents</h1>
             <!-- <button class="btn btn-primary btn-md col-md-1" id="upload-button">Upload file</button> -->
-            <%= render 'partials/upload_file', locals: {document: @document} %>
+            <%= render 'partials/upload_file', locals: {document: @document, s3_direct_post: @s3_direct_post} %>
             <%# form_for :documents do |f| %>
             <%# file_field("Add new", class: "btn btn-primary btn-md col-md-1")%>
             <%# end %>
