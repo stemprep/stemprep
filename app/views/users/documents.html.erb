@@ -4,7 +4,7 @@
 <%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
-    <main id="content" class="content" role="main">
+    <main id="content" class="content <%= controller_name %> <%= action_name %>" role="main">
         <ol class="breadcrumb">
             <li>Home</li>
             <li class="active">Documents</li>
@@ -106,3 +106,4 @@
 <div class="loader-wrap hiding hide">
     <i class="fa fa-circle-o-notch fa-spin-fast"></i>
 </div>
+

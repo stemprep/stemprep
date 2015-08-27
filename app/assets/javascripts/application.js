@@ -11,17 +11,20 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require bootstrap-sprockets
+//= jquery-ready-selector
 
 // ----------------------- DO NOT CHANGE THE ORDER OF THE REQUIRES. ----------------------------
 
 //= require widgster
 //= require settings
+//= require app
 
 //= require turbolinks
 //= require jasny-bootstrap
 //= require jquery-pjax
-//= require jquery-ui
+
 //= require moment.js
 //= require fullcalendar.min
 // require gcal
@@ -39,10 +42,6 @@
 //= require jquery-ui/ui/datepicker
 //= require bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar
 
-
-
-
-
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 
 //= require calendar
@@ -57,7 +56,7 @@
 //= require backgrid
 //= require backgrid-paginator
 //= require dropzone
-//= require hide-uploader
+
 //= require messenger
 //= require flot/jquery.flot
 //= require flot/jquery.flot.canvas
@@ -79,9 +78,9 @@
 //= require jquery.upload/jquery.fileupload-validate
 //= require jquery.upload/jquery.iframe-transport
 
-//= require fileUpload
+// require fileUpload
 
-//= require app
+
 
 // require_tree .
 

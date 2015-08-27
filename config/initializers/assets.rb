@@ -2,6 +2,13 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
+Rails.application.config.assets.precompile += %w( jquery-ui/jquery-ui.js)
+Rails.application.config.assets.precompile += %w( jquery.upload/jquery.fileupload.js )
+Rails.application.config.assets.precompile += %w( jquery.upload/main.js )
+Rails.application.config.assets.precompile += %w( jquery.upload/jquery.fileupload-process.js )
+Rails.application.config.assets.precompile += %w( jquery.upload/jquery.postmessage-transport.js )
+Rails.application.config.assets.precompile += %w( jquery.upload/jquery.xdr-transport.js )
+Rails.application.config.assets.precompile += %w( hide-uploader.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

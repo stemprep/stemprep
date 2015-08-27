@@ -1,7 +1,12 @@
-<%= form_for locals[:document], url: {action: :create}, html: {class: "directUpload"} do |f| %>
+<p class="amazon-var-url" style="display: none"><%= "#{locals[:s3_direct_post].url}" %></p>
+<p class="amazon-var-host" style="display: none"><%= "#{locals[:s3_direct_post].url.host}" %></p>
+<p class="amazon-var-fields" style="display: none"><%= "#{locals[:s3_direct_post].fields.to_json.html_safe}" %></p>
+<%= form_for locals[:document], url: {action: :create}, html: {class: "directUpload", id: "uploadForm"} do |f| %>
+
     <% if @errors %>
     <div class="error-container"></div>
     <%end%>
+
 
     <label class="vis-label btn btn-primary btn-md col-md-1">
         <%= f.file_field :file, class: "file-up" %>
@@ -9,6 +14,13 @@
     </label>
         <%= f.submit 'submit', class: "btn btn-inverse btn-md sub-doc col-md-1"%>
 <% end%>
+<%# javascript_include_tag 'jquery-ui/jquery-ui.js' %>
+<%# javascript_include_tag 'jquery.upload/jquery.fileupload' %>
+<%# javascript_include_tag 'jquery.upload/main' %>
+<%# javascript_include_tag 'jquery.upload/jquery.fileupload-process' %>
+<%# javascript_include_tag 'jquery.upload/jquery.postmessage-transport' %>
+<%# javascript_include_tag 'jquery.upload/jquery.xdr-transport' %>
+<%= javascript_include_tag 'hide-uploader' %>
 
 
 

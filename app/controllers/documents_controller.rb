@@ -14,9 +14,8 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    require 'pry'
-    binding.pry
-
+    # require 'pry'
+    # binding.pry
   end
 
   def update
