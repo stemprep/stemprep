@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 gem 'rails_12factor'
 gem 'carrierwave'
+gem 'fog'
 
 gem 'aws-sdk-v1'
 
