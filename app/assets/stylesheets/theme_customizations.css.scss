@@ -23,3 +23,19 @@ main.content {
   }
 }
 
+.search-box {
+  padding: .75em;
+  border: 1px solid lightgray;
+  text-align: left;
+  &:hover {
+    cursor: text;
+  }
+}
+
+.search-submit {
+  padding: 10px;
+}
+
+.doc-header {
+  display: block;
+}

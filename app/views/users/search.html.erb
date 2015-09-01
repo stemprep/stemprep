@@ -1,0 +1,44 @@
+<%# javascript_include_tag 'fileUpload', 'data-turbolinks-track' => true %>
+<%= render "partials/sidebar", locals: {current_user: current_user, page: 3} %>
+<%= render "partials/headerbar", locals: {current_user: current_user, page: 3} %>
+<%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
+<div class="content-wrap">
+    <main id="content" class="content <%= controller_name %> <%= action_name %>" role="main">
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li class="active">Search</li>
+        </ol>
+        <div class="head-container row">
+            <h1 class="page-title header-light col-md-2" id="documents-header">
+                Search
+            </h1>
+        </div>
+
+
+
+        <section class="widget row">
+            <header>
+                <div class="input-group input-group-sm input-group-transparent input-group-rounded col-md-5">
+                    <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+                    <input class="search-box btn btn-submit col-md-8" id="search-students" type="text" placeholder="Search Students">
+                    <div class="col-md-1"></div>
+                    <input type="submit" class="search-submit btn btn-success col-md-3" value="Search">
+                </div>
+
+                <div class="widget-controls">
+                    <div class="width-200">
+                    </div>
+                </div>
+            </header>
+        </section>
+        <section class="widget search-results">
+        </section>
+    </main>
+</div>
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+

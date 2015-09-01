@@ -39,6 +39,7 @@ $(function(){
         this.$loaderWrap = $('.loader-wrap');
         this.$navigationStateToggle = $('#nav-state-toggle');
         this.$navigationCollapseToggle = $('#nav-collapse-toggle');
+
         this.settings = window.SingSettings;
         this.pageLoadCallbacks = {};
         this.resizeCallbacks = [];
@@ -92,7 +93,6 @@ $(function(){
 
         this.$navigationStateToggle.on('click', $.proxy(this.toggleNavigationState, this));
         this.$navigationCollapseToggle.on('click', $.proxy(this.toggleNavigationCollapseState, this));
-
         /* reimplementing bs.collapse data-parent here as we don't want to use BS .panel*/
         this.$sidebar.find('.collapse').on('show.bs.collapse', function(e){
             // execute only if we're actually the .collapse element initiated event

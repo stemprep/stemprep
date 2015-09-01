@@ -1,14 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-new_user = User.create!(first_name: "Jim", last_name: "Joyce", username: "jjoyce1", password: "pass", password_confirmation: "pass", home_town: "Westmont", year: 2015, program: "Super dope program", building: "B")
-
-second_user = User.create!(first_name: "Jim", last_name: "Joyce", username: "jim", password: "pass", password_confirmation: "pass", home_town: "Chicago", year: 2015, program: "Everything", building: "F")
+new_user = User.create!(
+      first_name: "Jim",
+      last_name: "Joyce",
+      username: "jjoyce1",
+      password: "pass",
+      password_confirmation: "pass",
+      city: "Westmont",
+      state: "IL",
+      grade: 2015,
+      major: "Chemical Engineering",
+      birthday: "07/16/1992",
+      admin: true)
+second_user = User.create!(
+      first_name: "Jim",
+      last_name: "Joyce",
+      username: "jim",
+      password: "pass",
+      password_confirmation: "pass",
+      city: "Denver",
+      state: "CO",
+      grade: 2017,
+      major: "Liberal Arts",
+      birthday: "03/22/1994",
+      admin: false)
 
 new_user.events.create!(title: "My Event",
                         all_day: false,

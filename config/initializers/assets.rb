@@ -9,6 +9,7 @@ Rails.application.config.assets.precompile += %w( jquery.upload/jquery.fileuploa
 Rails.application.config.assets.precompile += %w( jquery.upload/jquery.postmessage-transport.js )
 Rails.application.config.assets.precompile += %w( jquery.upload/jquery.xdr-transport.js )
 Rails.application.config.assets.precompile += %w( hide-uploader.js )
+Rails.application.config.assets.precompile += %w( showForumPost.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

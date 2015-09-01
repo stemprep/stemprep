@@ -3,6 +3,7 @@
 <%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <div class="attachPost"></div>
     <main id="content" class="content" role="main">
         <ol class="breadcrumb">
             <li>Home</li>
@@ -10,39 +11,7 @@
         </ol>
         <div class="head-container row">
             <h1 class="page-title header-light col-md-2" id="documents-header">Forum</h1>
-            <!-- <button class="btn btn-primary btn-md col-md-1" id="upload-button">Upload file</button> -->
-            <%# render 'partials/upload_file', locals: {document: @document} %>
-            <%# form_for :documents do |f| %>
-            <%# file_field("Add new", class: "btn btn-primary btn-md col-md-1")%>
-            <%# end %>
         </div>
-
-
-
-        <!-- <section class="widget">
-            <header>
-                <h4>
-                    Table <span class="fw-semi-bold">Styles</span>
-                </h4>
-                <div class="widget-controls">
-                    <div class="width-200">
-                        <div class="input-group input-group-sm input-group-transparent input-group-rounded">
-                            <span class="input-group-addon">
-                                <i class="fa fa-search"></i>
-                            </span>
-                            <input class="form-control " id="search-countries" type="text" placeholder="Search Countries">
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div class="widget-body">
-                <p>
-                    Editable, validatable, filterable and sortable table made with
-                    <a href="http://backgridjs.com/" target="_blank">Backgrid.js</a>
-                </p>
-                <div id="table-dynamic"></div>
-            </div>
-        </section> -->
         <section class="widget">
             <header>
                 <h4>All <span class="fw-semi-bold">Posts</span></h4>
@@ -68,7 +37,7 @@
                         <tbody>
                         <% @posts.each do |post| %>
                             <tr>
-                            <td><span class="fw-semi-bold"><a href="/forum/posts/<%=post.id%>"><%= post.title %></a></span>
+                            <td><span class="fw-semi-bold"><a class="forum-post-link" href="/forum/posts/<%=post.id%>"><%= post.title %></a></span>
                             </td>
                             <td class="hidden-xs">
                                 <small>
@@ -92,6 +61,7 @@
         </section>
     </main>
 </div>
+<%= javascript_include_tag 'showForumPost' %>
 <!-- The Loader. Is shown when pjax happens -->
 <div class="loader-wrap hiding hide">
     <i class="fa fa-circle-o-notch fa-spin-fast"></i>

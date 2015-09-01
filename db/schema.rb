@@ -64,11 +64,13 @@ ActiveRecord::Schema.define(version: 20150814121538) do
     t.string   "last_name"
     t.string   "username"
     t.string   "password_digest"
-    t.string   "program"
-    t.integer  "year"
-    t.string   "building"
-    t.string   "home_town"
+    t.string   "city"
+    t.string   "state"
+    t.string   "grade"
+    t.string   "major"
+    t.string   "birthday"
     t.boolean  "admin"
+    t.string   "avatar"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

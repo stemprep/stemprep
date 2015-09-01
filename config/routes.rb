@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/search', to:'users#search'
+  post '/search', to:'users#find_users'
+
   resources :users do
     resources :posts, only: [:create, :destroy, :index, :show]
     resources :comments, only: [:create, :destroy]

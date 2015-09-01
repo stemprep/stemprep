@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     render 'welcome/index'
   end
 
+  def search
+    render 'users/search'
+  end
+
+  def find_users
+
+  end
+
 
 
 private

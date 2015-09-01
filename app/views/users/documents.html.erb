@@ -10,42 +10,13 @@
             <li class="active">Documents</li>
         </ol>
         <div class="head-container row">
-            <h1 class="page-title header-light col-md-2" id="documents-header">My Documents</h1>
+            <h1 class="page-title header-light col-md-3 doc-header" id="documents-header">My Documents</h1>
             <!-- <button class="btn btn-primary btn-md col-md-1" id="upload-button">Upload file</button> -->
             <%= render 'partials/upload_file', locals: {document: @document, s3_direct_post: @s3_direct_post} %>
             <%# form_for :documents do |f| %>
             <%# file_field("Add new", class: "btn btn-primary btn-md col-md-1")%>
             <%# end %>
         </div>
-
-
-
-        <!-- <section class="widget">
-            <header>
-                <h4>
-                    Table <span class="fw-semi-bold">Styles</span>
-                </h4>
-                <div class="widget-controls">
-                    <div class="width-200">
-                        <div class="input-group input-group-sm input-group-transparent input-group-rounded">
-                            <span class="input-group-addon">
-                                <i class="fa fa-search"></i>
-                            </span>
-                            <input class="form-control " id="search-countries" type="text" placeholder="Search Countries">
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div class="widget-body">
-                <p>
-                    Editable, validatable, filterable and sortable table made with
-                    <a href="http://backgridjs.com/" target="_blank">Backgrid.js</a>
-                </p>
-                <div id="table-dynamic"></div>
-            </div>
-        </section> -->
-
-
         <section class="widget">
             <header>
                 <h4>Table <span class="fw-semi-bold">Styles</span></h4>
