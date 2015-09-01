@@ -39,3 +39,24 @@ main.content {
 .doc-header {
   display: block;
 }
+
+.forum-post-link {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes modalFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(25%);
+  }
+}
+.modal {
+  display: block;
+  opacity: 1
+}

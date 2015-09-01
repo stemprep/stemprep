@@ -1,6 +1,39 @@
-<main id="post-content" class="content" role="main">
+<div class="modal fade">
+  <div class="modal-dialog modal-on">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="close-post" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="header-container col-md-11">
+          <h4 class="modal-title"><%= @post.title %></h4>
+          <h5 class="modal-question"><%= @post.body %></h5>
+          <h6 class="modal-author"><%= @post.user.username %></h6>
+        </div>
+      </div>
+      <div class="comment-container col-md-12">
+        <h3 class="replies-header col-xs-11">REPLIES</h3>
+        <table id="datatable-table" class="comment-table col-md-10 center-block">
+            <!-- <tbody> -->
+            <% @post.comments.each do |comment| %>
+              <tr class="row">
+                <td class="col-md-1"><%= comment.user.username %> said:</td>
+                <td class="col-md-10"><%= comment.body %></td>
+              </tr>
+            <% end %>
+            <!-- </tbody> -->
+        </table>
+      </div>
+<!--       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- <main id="content" class="content forum-post" role="main">
     <ol class="breadcrumb">
-        <li>Home</li>
+        <li><%= link_to("Back to forum", "/forum") %></li>
         <li class="active">Post</li>
     </ol>
 
@@ -32,4 +65,4 @@
             </div>
         </div>
     </section>
-</main>
+</main> -->

@@ -3,8 +3,9 @@
 <%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
-    <div class="attachPost"></div>
+
     <main id="content" class="content" role="main">
+        <div class="attachPost"></div>
         <ol class="breadcrumb">
             <li>Home</li>
             <li class="active">Forum</li>
@@ -37,7 +38,7 @@
                         <tbody>
                         <% @posts.each do |post| %>
                             <tr>
-                            <td><span class="fw-semi-bold"><a class="forum-post-link" href="/forum/posts/<%=post.id%>"><%= post.title %></a></span>
+                            <td><span class="fw-semi-bold"><a class="forum-post-link" id="/forum/posts/<%=post.id%>"><%= post.title %></a></span>
                             </td>
                             <td class="hidden-xs">
                                 <small>
@@ -59,9 +60,10 @@
                 </div>
             </div>
         </section>
+        <%= javascript_include_tag 'showForumPost' %>
     </main>
 </div>
-<%= javascript_include_tag 'showForumPost' %>
+
 <!-- The Loader. Is shown when pjax happens -->
 <div class="loader-wrap hiding hide">
     <i class="fa fa-circle-o-notch fa-spin-fast"></i>

@@ -1,19 +1,17 @@
 $(".forum-post-link").on('click', function(event) {
   event.preventDefault();
-  var url = $(this).attr('href');
+  var sendUrl = $(this).attr('id');
+  // debugger
   $.ajax({
-    url: this.url,
-    type: 'GET',
-    data: {hello: 'hi'},
+    url: sendUrl,
+    method: 'get',
   })
   .done(function(response) {
-    console.log("success");
-    $("#content").children().each(function(index, el) {
-    $(el).fadeToggle('slow', function() {
-      debugger
-    });
-  });
-    debugger
+    var postTemplate = response;
+    $(".content-wrap").addClass('stop-scroll');
+    $(".attachPost").after(postTemplate);
+    // debugger
+    // $(".forum-post-link").off();
   })
   .fail(function() {
     console.log("error");
