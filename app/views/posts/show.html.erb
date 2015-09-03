@@ -1,46 +1,59 @@
-<div class="modal fade">
-  <div class="modal-dialog modal-on">
+<div id="forum-modal" class="modal fade" >
+  <div id="animate-post-modal" class="modal-dialog modal-on">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" id="close-post" class="close"aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" id="close-post" data-dismiss="modal" class="close"aria-label="Close">&times;</button>
         <div class="header-container col-md-11">
           <h4 class="modal-title"><%= @post.title %></h4>
           <h5 class="modal-question"><%= @post.body %></h5>
-          <h6 class="modal-author"><%= @post.user.username %></h6>
+          <h6 class="modal-author"><%= time_ago_in_words(@post.created_at) %> | by <%= @post.user.first_name + " " + @post.user.last_name %></h6>
         </div>
       </div>
       <div class="comment-container col-md-12">
-        <h3 class="replies-header col-xs-11">REPLIES</h3>
-        <table id="datatable-table" class="comment-table col-md-10 center-block">
-            <!-- <tbody> -->
-            <% @post.comments.each do |comment| %>
-              <tr class="row">
-                <td class="col-md-1"><%= comment.user.username %> said:</td>
-                <td class="col-md-10"><%= comment.body %></td>
-              </tr>
-            <% end %>
-            <!-- </tbody> -->
-        </table>
+
+        <div class="col-md-3 new-comment-container">
+          <div class="new-comment-position-container row">
+            <h3 id="new-comment-header" class="col-md-12">Add a comment</h3>
+            <form id="comment-form" action="/forum/posts/<%= @post.id %>/comments" class="col-md-10">
+              <input id="comment-user"type="hidden" name="user_id" value=<%= current_user.id %>>
+              <input id="comment-post" type="hidden" name="post_id" value=<%= @post.id %>>
+              <textarea id="comment-body" name="body" id="" cols="30" rows="10"></textarea>
+              <input id="submit-comment" class="btn btn-md btn-success" type="submit" />
+            </form>
+          </div>
+        </div>
+
+        <div class="comment-table-container col-md-9">
+          <table id="datatable-table" class="comment-table col-md-12">
+            <tr class="row replies-header">
+              <td class="table-header col-md-3"><h4>REPLIES</h4></td>
+            </tr>
+              <% @post.comments.each do |comment| %>
+                  <tr class="row ind-comment-container">
+                    <td width="100%" class="col-md-10 author-row">
+                        <%= time_ago_in_words(comment.created_at) %> from <%= comment.user.username %>
+                    </td>
+                    <td width="98%" class="col-md-12 comment-row"><%= comment.body %></td>
+                  </tr>
+              <% end %>
+          </table>
+        </div>
+
       </div>
-<!--       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
+<div class="modal-backdrop fade in"></div>
 <!-- <main id="content" class="content forum-post" role="main">
     <ol class="breadcrumb">
-        <li><%= link_to("Back to forum", "/forum") %></li>
+        <li><%# link_to("Back to forum", "/forum") %></li>
         <li class="active">Post</li>
     </ol>
 
     <section class="widget">
         <header class="row">
-            <h5 class="col-md-10"><%= @post.title %></h5>
-            <p class="col-md-9"><%= @post.body %></p>
+            <h5 class="col-md-10"><%# @post.title %></h5>
+            <p class="col-md-9"><%# @post.body %></p>
         </header>
         <div class="widget-body">
         </div>
@@ -54,12 +67,12 @@
             <div class="mt">
                 <table id="datatable-table" class="table table-striped table-hover">
                     <tbody>
-                    <% @post.comments.each do |comment| %>
+                    <%# @post.comments.each do |comment| %>
                       <tr>
-                        <td>from: <%= comment.user.username %></td>
-                        <td><%= comment.body %></td>
+                        <td>from: <%# comment.user.username %></td>
+                        <td><%# comment.body %></td>
                       </tr>
-                    <% end %>
+                    <%# end %>
                     </tbody>
                 </table>
             </div>

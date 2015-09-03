@@ -32,7 +32,7 @@ gem 'aws-sdk-v1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'faker'
-
+gem "better_errors"
 gem 'dotenv-rails', :groups => [:development, :test]
 
 

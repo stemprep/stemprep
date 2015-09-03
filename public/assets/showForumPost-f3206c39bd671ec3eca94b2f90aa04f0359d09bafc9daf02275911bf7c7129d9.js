@@ -36,25 +36,8 @@
         self.$appendElement.after(postTemplate);
         $("#forum-modal").css({display:'block', opacity:'1'});
         window.history.pushState({'post_id': self.paramId}, "", self.paramId);
-        self.bindCloseButton();
         CommentModule.init();
-      });
-    },
-    bindCloseButton: function () {
-      var self = this;
-      $("#close-post").on('click', function(event) {
-        event.preventDefault();
-        $("#animate-post-modal").css({
-          animation: '.2s dismissModal ease',
-          'animation-fill-mode': 'forwards'
-        });
-        $(".modal-backdrop.fade").fadeToggle('slow', function() {
-          self.$noScrollElement.removeClass('stop-scroll');
-          $("#close-post").off();
-          $(".modal-backdrop.fade").remove();
-          $("#forum-modal").remove();
-          self.bindElements();
-        });
+        debugger
       });
     },
     unBindListeners: function (bindedElement) {
@@ -79,9 +62,6 @@
     bindElements: function () {
       this.$submitButton.on('click', this.postComment.bind(this));
     },
-    redirectPath: function () {
-      window.location = this.$postId;
-    },
     postComment: function () {
       var self = this;
       this.$submitButton.off();
@@ -98,9 +78,11 @@
         }
       })
       .done(function(response) {
-        self.redirectPath();
         console.log("success");
-        // self.$appendTag.after(response.template);
+        debugger
+        var newComment = response;
+        self.$appendTag.after(newComment).toggle();
+        newComment.slideToggle('slow');
         self.bindElements();
       });
     }

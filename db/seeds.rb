@@ -60,7 +60,8 @@ new_user.comments.create!(body: "Well thanks for nothing.", post_id: first_post.
 20.times do
   new_user.posts.create!(title: Faker::Hacker.say_something_smart, body: Faker::Lorem.paragraph)
 end
-
 new_user.posts.each do |post|
-  post.comments.create!(body: Faker::Lorem.paragraph, user_id: 2)
+  20.times do
+    post.comments.create!(body: Faker::Lorem.paragraph, user_id: 2)
+  end
 end

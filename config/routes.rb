@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :forum, only: [:index] do
     resources :posts do
-      resources :comments, only: [:create, :destroy, :index]
+      resources :comments, only: [:create, :destroy]
     end
   end
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :documents, only: [:create, :destroy, :show, :index]
   end
 
-  namespace :admin do
+  scope :admin do
     resources :users
   end
 

@@ -38,7 +38,7 @@
                         <tbody>
                         <% @posts.each do |post| %>
                             <tr>
-                            <td><span class="fw-semi-bold"><a class="forum-post-link" id="/forum/posts/<%=post.id%>"><%= post.title %></a></span>
+                            <td><span class="fw-semi-bold"><a class="forum-post-link" id="/forum/posts/<%=post.id%>"><%= post.id %><%= post.title %></a></span>
                             </td>
                             <td class="hidden-xs">
                                 <small>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </section>
-        <%= javascript_include_tag 'showForumPost' %>
+    <%= javascript_include_tag 'showForumPost' %>
     </main>
 </div>
 
