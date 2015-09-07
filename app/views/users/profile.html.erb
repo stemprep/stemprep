@@ -1,6 +1,5 @@
 <%= render "partials/sidebar", locals: {current_user: current_user, page: 2} %>
 <%= render "partials/headerbar", locals: {current_user: current_user, page: 2} %>
-<%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 2} %>
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
     <main id="content" class="content" role="main">
@@ -8,32 +7,47 @@
             <li>Home</li>
             <li class="active">Profile</li>
         </ol>
-        <h1 class="page-title light-header">My Profile <%= link_to("Edit", "#", class: "btn btn-primary btn-md edit-user-profile") %>
-          <%= form_for :user, class: 'edit-form' do |f| %>
-        </h1>
+        <h1 class="page-title light-header">Profile
+          <% if @user == current_user %>
+            <%= link_to("Edit", "#", class: "btn btn-primary btn-md edit-user-profile") %>
+          <% end %>
 
+        </h1>
 
         <div class="row">
           <div class="col-md-12 main-content">
             <section class="widget col-xs-12">
               <div class="widget-content col-xs-12">
-                <%= image_tag("avatar.png", class: "profile-image col-md-2" ) %>
+                <div class="image-container profile-image col-md-2">
+                  <% if @user.prof_pic_url %>
+                    <%= image_tag(@user.prof_pic_url, class: "profile-image", size: "200") %>
+                  <% else %>
+                    <%= image_tag("avatar.png", class: "profile-image" ) %>
+                  <% end %>
+                  <%= direct_upload_form_for @uploader, class: 'col-md-2' do |f| %>
+                    <label class="vis-label btn btn-primary btn-md col-md-7 upload-but center-block">New Picture
+                      <%= f.file_field :avatar, id: "file-up" %>
+                    </label>
+                    <%= f.submit 'Update', class: "btn btn-success btn-md sub-doc col-md-7 upload-but center-block" %>
+                  <% end %>
+                </div>
                 <table class="table custom-table col-md-3 col-xs-12">
+                  <%= form_for :user, class: 'edit-form' do |f| %>
                   <tbody class="row">
                     <tr class="custom-row col-xs-12">
                       <td class="header-data">NAME:</td>
-                      <td class="info-data" id="name-row"><%="#{current_user.first_name }" + " " "#{current_user.last_name}" %></td>
-                      <td class="edit-input"><%= f.text_field :first_name %></td>
-                      <td class="edit-input"><%= f.text_field :last_name %></td>
+                      <td class="info-data" id="name-row"><%="#{@user.first_name }" + " " + "#{@user.last_name}" %></td>
+                      <td class="edit-input col-xs-4"><%= f.text_field :first_name %></td>
+                      <td class="edit-input col-xs-4"><%= f.text_field :last_name %></td>
                     </tr>
                     <tr class="custom-row col-xs-12">
                       <td class="header-data">CITY/STATE:</td>
-                      <td class="info-data" id="program-row"><%="#{current_user.city}"%></td>
+                      <td class="info-data" id="program-row"><%="#{@user.city}"%></td>
                       <td class="edit-input"><%= f.text_field :city %></td>
                     </tr>
                     <tr class="custom-row col-xs-12">
                       <td class="header-data" id="home-town-row">GRADE:</td>
-                      <td class="info-data"><%="#{current_user.grade}"%></td>
+                      <td class="info-data"><%="#{@user.grade}"%></td>
                       <td class="edit-input"><%= f.text_field :grade %></td>
                     </tr>
                   </tbody>
@@ -43,12 +57,12 @@
                   <tbody class="row">
                     <tr class="custom-row col-xs-12">
                       <td class="header-data" id="year-row">MAJOR:</td>
-                      <td class="info-data"><%="#{current_user.major}"%></td>
+                      <td class="info-data"><%="#{@user.major}"%></td>
                       <td class="edit-input"><%= f.text_field :major %></td>
                     </tr>
                     <tr class="custom-row col-xs-12">
                       <td class="header-data" id="building-row">BIRTHDAY:</td>
-                      <td class="info-data"><%="#{current_user.birthday}"%></td>
+                      <td class="info-data"><%="#{@user.birthday}"%></td>
                       <td class="edit-input"><%= f.text_field :birthday %></td>
                     </tr>
                     <tr class="custom-row edit-input col-xs-12">
@@ -61,6 +75,7 @@
             </section>
             </div>
           </div>
+          <%= javascript_include_tag 'edit_profile_ajax' %>
           <% end %>
         </main>
       </div>

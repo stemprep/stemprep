@@ -1,19 +1,32 @@
 <p class="amazon-var-url" style="display: none"><%= "#{locals[:s3_direct_post].url}" %></p>
 <p class="amazon-var-host" style="display: none"><%= "#{locals[:s3_direct_post].url.host}" %></p>
 <p class="amazon-var-fields" style="display: none"><%= "#{locals[:s3_direct_post].fields.to_json.html_safe}" %></p>
-<%= form_for locals[:document], url: {action: :create}, html: {class: "directUpload", id: "uploadForm"} do |f| %>
 
-    <% if @errors %>
-    <div class="error-container"></div>
-    <%end%>
+<%= direct_upload_form_for @uploader do |f| %>
+  <%= f.hidden_field :key %>
+  <label class="vis-label btn btn-primary btn-md col-md-1">
+    <%= f.file_field :document, class: "file-up" %>
+        Upload
+    </label>
+  <%= f.submit, class: "btn btn-inverse btn-md sub-doc col-md-1" %>
+<% end %>
+
+
+<%# form_for locals[:document], url: {action: :create}, html: {class: "directUpload", id: "uploadForm"} do |f| %>
+
+    <%# if @errors %>
+<!--     <div class="error-container"></div>
+    <%#end%>
 
 
     <label class="vis-label btn btn-primary btn-md col-md-1">
-        <%= f.file_field :file, class: "file-up" %>
+        <%# f.file_field :file, class: "file-up" %>
         Upload
-    </label>
-        <%= f.submit 'submit', class: "btn btn-inverse btn-md sub-doc col-md-1"%>
-<% end%>
+    </label> -->
+        <%# f.submit 'submit', class: "btn btn-inverse btn-md sub-doc col-md-1"%>
+<%# end%>
+
+
 <%# javascript_include_tag 'jquery-ui/jquery-ui.js' %>
 <%# javascript_include_tag 'jquery.upload/jquery.fileupload' %>
 <%# javascript_include_tag 'jquery.upload/main' %>

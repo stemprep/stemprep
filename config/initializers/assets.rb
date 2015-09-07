@@ -11,6 +11,10 @@ Rails.application.config.assets.precompile += %w( jquery.upload/jquery.xdr-trans
 Rails.application.config.assets.precompile += %w( hide-uploader.js )
 Rails.application.config.assets.precompile += %w( showForumPost.js )
 Rails.application.config.assets.precompile += %w( forumPost.js )
+Rails.application.config.assets.precompile += %w( calendar.js )
+Rails.application.config.assets.precompile += %w( calendarAjax.js )
+Rails.application.config.assets.precompile += %w( edit_profile_ajax.js )
+Rails.application.config.assets.precompile += %w( searchUsers.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

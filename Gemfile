@@ -23,8 +23,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 gem 'rails_12factor'
-gem 'carrierwave'
 gem 'fog'
+gem 'fog-aws'
+gem 'carrierwave'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 gem 'aws-sdk-v1'
 

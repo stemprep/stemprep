@@ -206,23 +206,24 @@ $(function(){
 
     SingAppView.prototype.collapseNavigation = function(){
         //this method only makes sense for non-static navigation state
-        $('#side-hide').hide();
+
         if (this.isNavigationStatic() && (Sing.isScreen('md') || Sing.isScreen('lg'))) return;
 
         $('body').addClass('nav-collapsed');
         this.$sidebar.find('.collapse.in').collapse('hide')
             .siblings('[data-toggle=collapse]').addClass('collapsed');
-
+        $('#side-hide').addClass('hidden');
     };
 
     SingAppView.prototype.expandNavigation = function(){
         //this method only makes sense for non-static navigation state
-        $('#side-hide').delay(350).toggle();
+
         if (this.isNavigationStatic() && (Sing.isScreen('md') || Sing.isScreen('lg'))) return;
 
         $('body').removeClass('nav-collapsed');
         this.$sidebar.find('.active .active').closest('.collapse').collapse('show')
             .siblings('[data-toggle=collapse]').removeClass('collapsed');
+        $('#side-hide').delay(350).removeClass('hidden');
 
     };
 
@@ -543,7 +544,7 @@ $(function(){
     initAppPlugins();
     initAppFunctions();
     initAppFixes();
-    initDemoFunctions();
+    // initDemoFunctions();
 });
 
 /**
@@ -702,114 +703,115 @@ function initAppFunctions(){
      * Chat Sidebar
      * ========================================================================
      */
-    !function($){
-        //.chat-sidebar-container contains all needed styles so we don't pollute body{ }
-        var $chatContainer = $('body').addClass('chat-sidebar-container');
-        $(document).on('click', '[data-toggle=chat-sidebar]', function(){
-            $chatContainer.toggleClass('chat-sidebar-opened');
-            $(this).find('.chat-notification-sing').remove();
-        });
+     // to 813
+    // !function($){
+    //     //.chat-sidebar-container contains all needed styles so we don't pollute body{ }
+    //     var $chatContainer = $('body').addClass('chat-sidebar-container');
+    //     $(document).on('click', '[data-toggle=chat-sidebar]', function(){
+    //         $chatContainer.toggleClass('chat-sidebar-opened');
+    //         $(this).find('.chat-notification-sing').remove();
+    //     });
 
-        /*
-         * Open chat on swipe left but first check if navigation is collapsed
-         * otherwise do nothing
-         */
-        $('#content').on('swipeLeft', function(e){
-            console.log(arguments);
-            if ($('body').is('.nav-collapsed')){
-                $chatContainer.addClass('chat-sidebar-opened');
-            }
-        })
-            /*
-             * Hide chat on swipe right but first check if navigation is collapsed
-             * otherwise do nothing
-             */
-            .on('swipeRight', function(e){
-            if ($('body').is('.nav-collapsed.chat-sidebar-opened')){
-                $chatContainer.removeClass('chat-sidebar-opened')
-                    // as there is no way to cancel swipeLeft handlers attached to
-                    // .content making this hack with temporary class which will be
-                    // used by SingApp to check whether it is permitted to open navigation
-                    // on swipeRight
-                    .addClass('chat-sidebar-closing').one($.support.transition.end, function () {
-                        $('body').removeClass('chat-sidebar-closing');
-                    }).emulateTransitionEnd(300);
-            }
-        });
+    //     /*
+    //      * Open chat on swipe left but first check if navigation is collapsed
+    //      * otherwise do nothing
+    //      */
+    //     $('#content').on('swipeLeft', function(e){
+    //         console.log(arguments);
+    //         if ($('body').is('.nav-collapsed')){
+    //             $chatContainer.addClass('chat-sidebar-opened');
+    //         }
+    //     })
+    //         /*
+    //          * Hide chat on swipe right but first check if navigation is collapsed
+    //          * otherwise do nothing
+    //          */
+    //         .on('swipeRight', function(e){
+    //         if ($('body').is('.nav-collapsed.chat-sidebar-opened')){
+    //             $chatContainer.removeClass('chat-sidebar-opened')
+    //                 // as there is no way to cancel swipeLeft handlers attached to
+    //                 // .content making this hack with temporary class which will be
+    //                 // used by SingApp to check whether it is permitted to open navigation
+    //                 // on swipeRight
+    //                 .addClass('chat-sidebar-closing').one($.support.transition.end, function () {
+    //                     $('body').removeClass('chat-sidebar-closing');
+    //                 }).emulateTransitionEnd(300);
+    //         }
+    //     });
 
-        $(document).on('click', '.chat-sidebar-user-group > a', function(){
-            var $this = $(this),
-                $target = $($this.attr('href')),
-                $targetTitle = $target.find('.title');
-            $this.removeClass('active').find('.badge').remove();
-            $target.addClass('open');
-            $('.chat-sidebar-contacts').removeClass('open');
-            $('.chat-sidebar-footer').addClass('open');
-            $('.message-list', $target).slimscroll({
-                height: $target.height() - $targetTitle.height()
-                    - parseInt($targetTitle.css('margin-top'))
-                    - parseInt($targetTitle.css('margin-bottom')),
-                width: '',
-                size: '4px'
-            });
-            return false;
-        });
+    //     $(document).on('click', '.chat-sidebar-user-group > a', function(){
+    //         var $this = $(this),
+    //             $target = $($this.attr('href')),
+    //             $targetTitle = $target.find('.title');
+    //         $this.removeClass('active').find('.badge').remove();
+    //         $target.addClass('open');
+    //         $('.chat-sidebar-contacts').removeClass('open');
+    //         $('.chat-sidebar-footer').addClass('open');
+    //         $('.message-list', $target).slimscroll({
+    //             height: $target.height() - $targetTitle.height()
+    //                 - parseInt($targetTitle.css('margin-top'))
+    //                 - parseInt($targetTitle.css('margin-bottom')),
+    //             width: '',
+    //             size: '4px'
+    //         });
+    //         return false;
+    //     });
 
-        $(document).on('click', '.chat-sidebar-chat .js-back', function(){
-            var $chat = $(this).closest('.chat-sidebar-chat').removeClass('open');
-            var $sidebarContacts = $('.chat-sidebar-contacts').addClass('open');
-            $('.chat-sidebar-footer').removeClass('open');
+    //     $(document).on('click', '.chat-sidebar-chat .js-back', function(){
+    //         var $chat = $(this).closest('.chat-sidebar-chat').removeClass('open');
+    //         var $sidebarContacts = $('.chat-sidebar-contacts').addClass('open');
+    //         $('.chat-sidebar-footer').removeClass('open');
 
-            return false;
-        });
+    //         return false;
+    //     });
 
-        $('#chat-sidebar-input').keyup(function(e){
-            if(e.keyCode != 13) return;
-            var val;
-            if ((val = $(this).val().trim()) == '') return;
+    //     $('#chat-sidebar-input').keyup(function(e){
+    //         if(e.keyCode != 13) return;
+    //         var val;
+    //         if ((val = $(this).val().trim()) == '') return;
 
-            var $currentMessageList = $('.chat-sidebar-chat.open .message-list'),
-                $message = $('<li class="message from-me">' +
-                    '<span class="thumb-sm"><img class="img-circle" src="img/avatar.png" alt="..."></span>' +
-                    '<div class="message-body"></div>' +
-                    '</li>');
-            $message.appendTo($currentMessageList).find('.message-body').text(val);
-            $(this).val('');
-        });
+    //         var $currentMessageList = $('.chat-sidebar-chat.open .message-list'),
+    //             $message = $('<li class="message from-me">' +
+    //                 '<span class="thumb-sm"><img class="img-circle" src="img/avatar.png" alt="..."></span>' +
+    //                 '<div class="message-body"></div>' +
+    //                 '</li>');
+    //         $message.appendTo($currentMessageList).find('.message-body').text(val);
+    //         $(this).val('');
+    //     });
 
-        $('#chat-sidebar-search').keyup(function(){
-            var $contacts = $('.chat-sidebar-contacts.open'),
-                $chat = $('.chat-sidebar-chat.open'),
-                val = $(this).val().trim().toUpperCase();
-            if ($contacts.length){
-                $('.chat-sidebar-user-group .list-group-item').addClass('hide').filter(function(){
-                    return val == '' ? true : ($(this).find('.message-sender').text().toUpperCase().indexOf(val) != -1)
-                }).removeClass('hide');
-            }
-            if ($chat.length){
-                $('.chat-sidebar-chat.open .message-list .message').addClass('hide').filter(function(){
-                    return val == '' ? true : ($(this).find('.message-body').text().toUpperCase().indexOf(val) != -1)
-                }).removeClass('hide');
-            }
-        });
+    //     $('#chat-sidebar-search').keyup(function(){
+    //         var $contacts = $('.chat-sidebar-contacts.open'),
+    //             $chat = $('.chat-sidebar-chat.open'),
+    //             val = $(this).val().trim().toUpperCase();
+    //         if ($contacts.length){
+    //             $('.chat-sidebar-user-group .list-group-item').addClass('hide').filter(function(){
+    //                 return val == '' ? true : ($(this).find('.message-sender').text().toUpperCase().indexOf(val) != -1)
+    //             }).removeClass('hide');
+    //         }
+    //         if ($chat.length){
+    //             $('.chat-sidebar-chat.open .message-list .message').addClass('hide').filter(function(){
+    //                 return val == '' ? true : ($(this).find('.message-body').text().toUpperCase().indexOf(val) != -1)
+    //             }).removeClass('hide');
+    //         }
+    //     });
 
-        function initChatSidebarScroll(){
-            var $sidebarContent = $('.chat-sidebar-contacts');
-            if ($('#chat').find('.slimScrollDiv').length != 0){
-                $sidebarContent.slimscroll({
-                    destroy: true
-                })
-            }
-            $sidebarContent.slimscroll({
-                height: window.innerHeight,
-                width: '',
-                size: '4px'
-            });
-        }
+    //     function initChatSidebarScroll(){
+    //         var $sidebarContent = $('.chat-sidebar-contacts');
+    //         if ($('#chat').find('.slimScrollDiv').length != 0){
+    //             $sidebarContent.slimscroll({
+    //                 destroy: true
+    //             })
+    //         }
+    //         $sidebarContent.slimscroll({
+    //             height: window.innerHeight,
+    //             width: '',
+    //             size: '4px'
+    //         });
+    //     }
 
-        SingApp.onResize(initChatSidebarScroll, true);
-        initChatSidebarScroll();
-    }(jQuery);
+    //     SingApp.onResize(initChatSidebarScroll, true);
+    //     initChatSidebarScroll();
+    // }(jQuery);
 }
 
 
@@ -821,44 +823,4 @@ function initAppFixes(){
     var isWebkit = 'WebkitAppearance' in document.documentElement.style;
     if (isWebkit){
     }
-}
-
-/**
- * Demo-only functions. Does not affect the core Sing functionality.
- * Should be removed when used in real app.
- */
-function initDemoFunctions(){
-    !function($){
-        $('#load-notifications-btn').on('ajax-load:end', function () {
-            setTimeout(function(){
-                $('#notifications-list').find('.bg-attention').removeClass('bg-attention');
-            }, 10000)
-        });
-        $('#notifications-toggle').find('input').on('ajax-load:end', function(){
-            $('#notifications-list').find('[data-toggle=tooltip]').tooltip();
-        });
-
-        $('[data-toggle="chat-sidebar"]').one('click', function(){
-            setTimeout(function(){
-                $('.chat-sidebar-user-group:first-of-type .list-group-item:first-child').addClass('active')
-                    .find('.fa-circle').after('<span class="badge badge-danger pull-right animated bounceInDown">3</span>');
-            }, 1000)
-        });
-
-        setTimeout(function(){
-            var $chatNotification = $('#chat-notification');
-            $chatNotification.removeClass('hide').addClass('animated fadeIn')
-                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                    $chatNotification.removeClass('animated fadeIn');
-                    setTimeout(function(){
-                        $chatNotification.addClass('animated fadeOut')
-                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                              $chatNotification.addClass('hide');
-                            });
-                    }, 4000);
-                });
-            $chatNotification.siblings('[data-toggle="chat-sidebar"]').append('<i class="chat-notification-sing animated bounceIn"></i>')
-        }, 4000)
-
-    }(jQuery);
 }

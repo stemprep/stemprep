@@ -2,6 +2,8 @@ class CreateDocuments < ActiveRecord::Migration
   def change
     create_table :documents do |t|
       t.string :title
+      t.string :amazon_url
+      t.string :amazon_key
       t.string :size
       t.belongs_to :user, index: true, foreign_key: true
 

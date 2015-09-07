@@ -28,13 +28,13 @@
 //= require moment.js
 //= require fullcalendar.min
 // require gcal
-//= require calendarAjax
+// require calendarAjax
 
 // ----------------------- DO NOT CHANGE THE ORDER OF THE REQUIRES. ----------------------------
 
 
 
-//= require edit_profile_ajax
+
 
 
 
@@ -44,7 +44,7 @@
 
 //= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 
-//= require calendar
+// require calendar
 
 
 

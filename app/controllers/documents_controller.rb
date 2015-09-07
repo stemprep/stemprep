@@ -1,21 +1,28 @@
 class DocumentsController < ApplicationController
 
   def index
-    # @user_documents = current_user.documents
-    session[:user_id] = 1;
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
-    @document = current_user.documents.new
-    @errors
-    render 'users/documents'
+    @user_documents = current_user.documents
+    @is_uploading = true
+    @uploader = current_user.documents.new.document
+    @uploader.success_action_redirect = 'http://localhost:3000/users/1/documents/new'
+  end
+
+  def new
+    @doc_key = params[:key]
+    render 'documents/index'
   end
 
   def show
-
   end
 
   def create
-    # require 'pry'
-    # binding.pry
+
+    new_doc = current_user.documents.new(document_params)
+    require 'pry'
+    binding.pry
+    if new_doc.save
+      redirect_to user_documents_path
+    end
   end
 
   def update
@@ -25,5 +32,12 @@ class DocumentsController < ApplicationController
   def destroy
 
   end
+
+  private
+
+  def document_params
+    params.require(:document).permit(:user_id, :title, :amazon_url, :amazon_key)
+  end
+
 
 end

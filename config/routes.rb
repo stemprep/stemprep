@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/forum' => 'forum#show'
   get '/logout' => 'sessions#destroy'
 
+  get '/users/:user_id/profile/update_picture' => 'users#update_pic'
+
   resource :forum, only: [:index] do
     resources :posts do
       resources :comments, only: [:create, :destroy]
@@ -16,14 +18,13 @@ Rails.application.routes.draw do
   end
 
   get '/search', to:'users#search'
-  post '/search', to:'users#find_users'
 
   resources :users do
     resources :posts, only: [:create, :destroy, :index, :show]
     resources :comments, only: [:create, :destroy]
     resources :events
     resource :profile
-    resources :documents, only: [:create, :destroy, :show, :index]
+    resources :documents, only: [:create, :destroy, :show, :index, :new]
   end
 
   scope :admin do

@@ -93,7 +93,6 @@
 
 .profile-image {
   display: block;
-  height: 100%;
   border-radius: 50%;
   margin-right: 5%;
 }
@@ -146,13 +145,13 @@
   float: right;
 }
 
-.directUpload {
+#new_document_uploader {
   .vis-label {
     cursor: pointer;
     text-align: center;
     margin-right: 2em;
   }
-  input[type="file"] {
+  .file-up {
     display: none;
   }
 }
@@ -213,7 +212,7 @@ section.widget.bg-transparent {
 .modal.fade .modal-dialog.modal-on {
   min-width: 90%;
   min-height: 100%;
-  transform: translate(0, 2%);
+  transform: translate(0, 0);
   .modal-content {
     background-color: #ccc;
     min-height: 90vh;
@@ -257,10 +256,12 @@ section.widget.bg-transparent {
       max-height: 78vmin;
       padding-right: 0;
       padding-left: 0;
-      border-bottom-right-radius:5px;
       border-bottom-left-radius:5px;
+      border-bottom-right-radius:5px;
       .comment-table-container {
         position: absolute;
+        border-bottom-right-radius:5px;
+        border-bottom-left-radius:5px;
         background-color: #bbb;
         padding: 0;
         height: 100%;
@@ -336,6 +337,7 @@ section.widget.bg-transparent {
           min-height: inherit;
           background-color: #bbb;
           float: right;
+          border-bottom-right-radius:5px;
           /*width: 24%;*/
           .new-comment-position-container {
             position: absolute;
@@ -397,4 +399,32 @@ section.widget.bg-transparent {
 
 .stop-scroll {
   overflow: hidden;
+}
+
+.small-form {
+  width: 20%;
+}
+
+#file-up {
+  display: none;
+}
+
+.upload-but {
+  margin-top: 5px;
+  float: none;
+}
+
+.new_post {
+  textarea {
+    width: 100%;
+    resize: no-resize;
+  }
+  input {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+
+.thumbnail-prof {
 }

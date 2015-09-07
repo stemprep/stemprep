@@ -4,7 +4,6 @@
     init: function () {
       this.getElements();
       this.bindElements();
-      this.checkSidebar();
       console.log("forum js ready");
     },
     getElements: function () {
@@ -12,14 +11,6 @@
       this.$forumLink = this.$forumTitle.attr('id');
       this.$noScrollElement = $(".content-wrap");
       this.$appendElement = $(".attachPost");
-    },
-    checkSidebar:function  () {
-      // debugger
-      setTimeout(function(){
-        if(!$("body").attr('class')){
-          window.SingApp.toggleNavigationCollapseState();
-        }
-      }, 2800);
     },
     bindElements: function () {
       var self = this;
@@ -53,7 +44,6 @@
       var self = this;
       $("#close-post").on('click', function(event) {
         event.preventDefault();
-        window.history.pushState({'post_id': ''}, "", '/forum');
         $("#animate-post-modal").css({
           animation: '.2s dismissModal ease',
           'animation-fill-mode': 'forwards'
@@ -126,5 +116,3 @@
 
 
 })();
-
-// nav-collapsed

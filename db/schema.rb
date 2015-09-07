@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814121538) do
+ActiveRecord::Schema.define(version: 20150905194131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150814121538) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
+    t.string   "amazon_url"
+    t.string   "amazon_key"
     t.string   "size"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -51,6 +53,13 @@ ActiveRecord::Schema.define(version: 20150814121538) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "page_visits", force: :cascade do |t|
+    t.integer  "view_count",     default: 0
+    t.integer  "new_user_count", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
@@ -70,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150814121538) do
     t.string   "major"
     t.string   "birthday"
     t.boolean  "admin"
-    t.string   "avatar"
+    t.string   "prof_pic_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

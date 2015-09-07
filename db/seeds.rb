@@ -1,4 +1,4 @@
-
+PageVisit.create!
 new_user = User.create!(
       first_name: "Jim",
       last_name: "Joyce",
@@ -12,9 +12,35 @@ new_user = User.create!(
       birthday: "07/16/1992",
       admin: true)
 second_user = User.create!(
-      first_name: "Jim",
+      first_name: "Josh",
       last_name: "Joyce",
-      username: "jim",
+      username: "josh",
+      password: "pass",
+      password_confirmation: "pass",
+      city: "Denver",
+      state: "CO",
+      grade: 2017,
+      major: "Liberal Arts",
+      birthday: "03/22/1994",
+      admin: false)
+
+User.create!(
+      first_name: "Jim",
+      last_name: "Winslow",
+      username: "tim",
+      password: "pass",
+      password_confirmation: "pass",
+      city: "Denver",
+      state: "CO",
+      grade: 2017,
+      major: "Liberal Arts",
+      birthday: "03/22/1994",
+      admin: false)
+
+User.create!(
+      first_name: "Kevin",
+      last_name: "Dwyer",
+      username: "kevin",
       password: "pass",
       password_confirmation: "pass",
       city: "Denver",

@@ -1,6 +1,5 @@
-<%= render "partials/sidebar", locals: {current_user: current_user, page: 3} %>
-<%= render "partials/headerbar", locals: {current_user: current_user, page: 3} %>
-<%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 3} %>
+<%= render "partials/sidebar", locals: {current_user: current_user, page: 4} %>
+<%= render "partials/headerbar", locals: {current_user: current_user, page: 4} %>
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
 
@@ -12,6 +11,33 @@
         </ol>
         <div class="head-container row">
             <h1 class="page-title header-light col-md-2" id="documents-header">Forum</h1>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success btn-md sub-doc col-md-1" data-toggle="modal" data-target="#myModal">
+              New Post
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New Post</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for @new_post, url: "/users/#{current_user.id}/posts" do |f| %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.text_field :title, class: "form-control", placeholder: 'Title' %>
+                    <%= f.text_area :body, class: "form-control", placeholder: 'Body...' %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <%= f.submit 'submit', class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
         <section class="widget">
             <header>

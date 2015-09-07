@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :major
       t.string :birthday
       t.boolean :admin
-      t.string :avatar
+      t.string :prof_pic_url
 
       t.timestamps null: false
     end

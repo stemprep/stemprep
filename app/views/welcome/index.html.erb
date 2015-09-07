@@ -1,18 +1,16 @@
-<%# render 'partials/experiments_list', locals: {proposal: proposal} %>
 <%= render "partials/sidebar", locals: {current_user: current_user, page: 1} %>
 <%= render "partials/headerbar", locals: {current_user: current_user, page: 1} %>
-<%= render "partials/chat_sidebar", locals: {current_user: current_user, page: 1} %>
 
 <div class="content-wrap">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
     <main id="content" class="content" role="main">
         <h1 class="page-title light-header">Home</h1>
         <div class="row">
+          <% if current_user.admin? %>
             <div class="col-md-6">
                 <!-- minimal widget consist of .widget class. note bg-transparent - it can be any background like bg-gray,
                 bg-primary, bg-white -->
                 <section class="widget bg-transparent">
-                    <!-- .widget-body is a mostly semantic class. may be a sibling to .widget>header or .widget>footer -->
                     <div class="widget-body">
                         <div class="row home-top-stats">
                             <div class="stat-container col-md-12 center-block">
@@ -25,8 +23,13 @@
                                                 <h4 class="row wig-head"><%= @student_count %></h4>
                                             </div>
                                             <div class="bottom-text left-bottom col-md-12">
-                                                <h4 class="wig-head col-md-6">Registrations<br> today</h4>
-                                                <h4 class="wig-head col-md-6">Bounce rate</h4>
+                                              <div class="col-md-6">
+                                                <h4 class="wig-head col-md-12">Registrations<br> today</h4>
+                                                <%= PageVisit.last.new_user_count %>
+                                              </div>
+                                                <div class="col-md-6">
+                                                  <h4 class="wig-head col-md-12">Bounce rate</h4>
+                                                </div>
                                             </div>
                                         </div>
                                     </section>
@@ -37,7 +40,7 @@
                                             <i class="glyphicon glyphicon-user col-md-4"></i>
                                             <div class="text-container col-md-7">
                                                 <h4 class="row wig-head">VISITS TODAY</h4>
-                                                <h4 class="row wig-head"><%= @student_count %></h4>
+                                                <h4 class="row wig-head"><%= PageVisit.last.view_count %></h4>
                                             </div>
                                             <div class="bottom-text col-md-12">
                                                 <h4 class="wig-head col-md-6">Registrations today</h4>
@@ -90,6 +93,7 @@
                     </div>
                 </section>
             </div>
+            <% end %>
 
             <div class="col-md-6">
                 <section class="widget">
@@ -101,7 +105,7 @@
                     <div class="widget-body no-padding">
                       <div class="list-group list-group-lg">
                         <% @recent_posts.each do |post| %>
-                          <a class="list-group-item" href="#">
+                          <a class="list-group-item" href="/forum/posts/<%= post.id %>">
                             <span class="thumb-sm pull-left mr">
                                 <!-- <img class="img-circle" src="demo/img/people/a2.jpg" alt="..."> -->
                                     <!-- <i class="status status-bottom bg-success"></i> -->
@@ -235,6 +239,8 @@
             </div>
         </div>
     </div>
+    <%= javascript_include_tag 'calendar' %>
+    <%= javascript_include_tag 'calendarAjax' %>
 </div>
 <!--  -->
 

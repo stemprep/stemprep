@@ -14,17 +14,6 @@
              looks good, so adding it and enhancing with notifications -->
         <div class="sidebar-status visible-xs">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="thumb-sm avatar pull-right">
-                    <img class="img-circle" src="demo/img/people/a5.jpg" alt="...">
-                </span>
-                <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
-                     should be used with bg-* and text-* classes for colors -->
-                <span class="circle bg-warning fw-bold text-gray-dark">
-                    13
-                </span>
-                &nbsp;
-                Philip <strong>Smith</strong>
-                <b class="caret"></b>
             </a>
             <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
         </div>
@@ -44,9 +33,6 @@
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
                     My Profile
-                    <span class="label label-danger">
-                        9
-                    </span>
                 </a>
             </li>
             <li <%= "class=active" if locals[:page] == 3 %>>
@@ -68,7 +54,7 @@
             </li>
 
             <li <%= "class=active" if locals[:page] == 5 %>>
-                <a href="/search">
+                <a href="/users">
                     <span class="icon">
                         <i class="glyphicon glyphicon-search"></i>
                     </span>
