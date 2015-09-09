@@ -28,8 +28,6 @@ gem 'fog-aws'
 gem 'carrierwave'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 
 gem 'aws-sdk-v1'
 
