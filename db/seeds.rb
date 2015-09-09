@@ -2,7 +2,7 @@ PageVisit.create!
 new_user = User.create!(
       first_name: "Jim",
       last_name: "Joyce",
-      username: "jjoyce1",
+      email: "jjoyce1",
       password: "pass",
       password_confirmation: "pass",
       city: "Westmont",
@@ -14,7 +14,7 @@ new_user = User.create!(
 second_user = User.create!(
       first_name: "Josh",
       last_name: "Joyce",
-      username: "josh",
+      email: "josh",
       password: "pass",
       password_confirmation: "pass",
       city: "Denver",
@@ -27,7 +27,7 @@ second_user = User.create!(
 User.create!(
       first_name: "Jim",
       last_name: "Winslow",
-      username: "tim",
+      email: "tim",
       password: "pass",
       password_confirmation: "pass",
       city: "Denver",
@@ -40,7 +40,7 @@ User.create!(
 User.create!(
       first_name: "Kevin",
       last_name: "Dwyer",
-      username: "kevin",
+      email: "kevin",
       password: "pass",
       password_confirmation: "pass",
       city: "Denver",

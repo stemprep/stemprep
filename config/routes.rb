@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get '/forum' => 'forum#show'
   get '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
 
   get '/users/:user_id/profile/update_picture' => 'users#update_pic'
 

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password][0])
       session[:user_id] = @user.id
       PageVisit.last.update_view_count

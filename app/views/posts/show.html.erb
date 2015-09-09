@@ -31,7 +31,7 @@
               <% @post.comments.each do |comment| %>
                   <tr class="row ind-comment-container">
                     <td width="100%" class="col-md-10 author-row">
-                        <%= time_ago_in_words(comment.created_at) %> from <%= comment.user.username %>
+                        <%= time_ago_in_words(comment.created_at) %> from <%= comment.user.email %>
                     </td>
                     <td width="98%" class="col-md-12 comment-row"><%= comment.body %></td>
                   </tr>
@@ -69,7 +69,7 @@
                     <tbody>
                     <%# @post.comments.each do |comment| %>
                       <tr>
-                        <td>from: <%# comment.user.username %></td>
+                        <td>from: <%# comment.user.email %></td>
                         <td><%# comment.body %></td>
                       </tr>
                     <%# end %>
