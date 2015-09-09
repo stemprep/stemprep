@@ -38,7 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'faker'
 gem "better_errors"
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails', :groups => [:development, :test], :require => 'dotenv/rails-now'
 
 
 # Use Unicorn as the app server
