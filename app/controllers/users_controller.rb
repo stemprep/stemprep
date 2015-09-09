@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def search
     @results = User.search(search_params)
+    @user_search = params[:query]
     render 'search_results', layout: false
   end
 

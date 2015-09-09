@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
 
   def show
+    @new_post = current_user.posts.new
     if is_ajax?
       @post = Post.find_by_id(params[:id])
       render 'posts/show', :layout => false

@@ -18,8 +18,6 @@ class DocumentsController < ApplicationController
   def create
 
     new_doc = current_user.documents.new(document_params)
-    require 'pry'
-    binding.pry
     if new_doc.save
       redirect_to user_documents_path
     end
