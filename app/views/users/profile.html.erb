@@ -32,7 +32,7 @@
                   <% end %>
                 </div>
                 <table class="table custom-table col-md-3 col-xs-12">
-                  <%= form_for :user, class: 'edit-form' do |f| %>
+                  <%= form_for current_user, action: :update, class: 'edit-form' do |f| %>
                   <tbody class="row">
                     <tr class="custom-row col-xs-12">
                       <td class="header-data">NAME:</td>
@@ -41,20 +41,25 @@
                       <td class="edit-input col-xs-4"><%= f.text_field :last_name %></td>
                     </tr>
                     <tr class="custom-row col-xs-12">
-                      <td class="header-data">CITY/STATE:</td>
+                      <td class="header-data">CITY</td>
                       <td class="info-data" id="program-row"><%="#{@user.city}"%></td>
                       <td class="edit-input"><%= f.text_field :city %></td>
                     </tr>
                     <tr class="custom-row col-xs-12">
-                      <td class="header-data" id="home-town-row">GRADE:</td>
-                      <td class="info-data"><%="#{@user.grade}"%></td>
-                      <td class="edit-input"><%= f.text_field :grade %></td>
+                      <td class="header-data">STATE</td>
+                      <td class="info-data" id="program-row"><%="#{@user.state}"%></td>
+                      <td class="edit-input"><%= f.text_field :state %></td>
                     </tr>
                   </tbody>
                 </table>
 
                 <table class="table custom-table col-md-3">
                   <tbody class="row">
+                    <tr class="custom-row col-xs-12">
+                      <td class="header-data" id="home-town-row">GRADE:</td>
+                      <td class="info-data"><%="#{@user.grade}"%></td>
+                      <td class="edit-input"><%= f.text_field :grade %></td>
+                    </tr>
                     <tr class="custom-row col-xs-12">
                       <td class="header-data" id="year-row">MAJOR:</td>
                       <td class="info-data"><%="#{@user.major}"%></td>

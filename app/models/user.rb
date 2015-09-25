@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
     'https://s3-us-west-2.amazonaws.com/smustem-avatars/' + key
   end
 
+  def avatar_changed?
+    nil
+  end
 
   def self.search(search)
     name = self.prep_search(search)

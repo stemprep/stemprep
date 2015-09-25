@@ -25,6 +25,14 @@ class UsersController < ApplicationController
 
   end
 
+  def update
+    if current_user.update(user_params)
+      redirect_to user_profile_path(current_user), notice: 'User was successfully updated.'
+    else
+      redirect_to user_profile_path(current_user)
+    end
+  end
+
   def update_pic
     current_user.update_columns(prof_pic_url: User.set_avatar_url(params[:key]))
     redirect_to "/users/#{current_user.id}/profile"

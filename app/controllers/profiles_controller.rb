@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
 
   def edit
-    @uploader = User.avatar.new
+    @uploader = current_user.avatar.new
     @uploader.success_action_redirect = "/users/#{current_user.id}/profile"
     render 'users/edit_profile'
   end

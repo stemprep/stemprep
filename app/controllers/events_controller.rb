@@ -13,6 +13,9 @@ class EventsController < ApplicationController
     event = current_user.events.new(event_params)
     event.start_time = user_start
     event.end_time = user_end
+    if current_user.admin?
+      # User.admins
+    end
     if event.save
       puts "<><><><><><><><><>><><><><><><><><><><><><><><><><><><><><><><><><>><><><"
       puts "event saved:"

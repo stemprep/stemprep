@@ -16,7 +16,6 @@ class DocumentsController < ApplicationController
   end
 
   def create
-
     new_doc = current_user.documents.new(document_params)
     if new_doc.save
       redirect_to user_documents_path
