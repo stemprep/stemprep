@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
+      current_user.save!
       redirect_to user_profile_path(current_user), notice: 'User was successfully updated.'
     else
       redirect_to user_profile_path(current_user)

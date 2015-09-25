@@ -4,7 +4,7 @@ class DocumentsController < ApplicationController
     @user_documents = current_user.documents
     @is_uploading = true
     @uploader = current_user.documents.new.document
-    @uploader.success_action_redirect = 'http://localhost:3000/users/1/documents/new'
+    @uploader.success_action_redirect = "https://morning-atoll-2439.herokuapp.com/users/#{current_user.id}/documents/new"
   end
 
   def new
