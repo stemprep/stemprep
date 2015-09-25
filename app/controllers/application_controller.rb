@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   def current_user
     @_current_user ||= User.find_by_id(session[:user_id])
   end
+
+  def today_page_visits
+    @_page_visit || PageVisit.Create!
+  end
   helper_method :current_user
 
   def logged_in?
