@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def today_page_visits
-    @_page_visit || PageVisit.Create!
+    @_page_visit ||= PageVisit.create!
   end
   helper_method :current_user
 
