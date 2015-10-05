@@ -25,14 +25,14 @@
                     <h4 class="modal-title" id="myModalLabel">New Post</h4>
                   </div>
                   <div class="modal-body">
-                    <%= form_for @new_post, url: "/users/#{current_user.id}/posts" do |f| %>
+                    <%= form_for :post, url: "/users/#{current_user.id}/posts" do |f| %>
                     <%= f.hidden_field :user_id, value: current_user.id %>
                     <%= f.text_field :title, class: "form-control", placeholder: 'Title' %>
                     <%= f.text_area :body, class: "form-control", placeholder: 'Body...' %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <%= f.submit 'submit', class: "btn btn-primary right" %>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <%= f.submit 'submit', class: "btn btn-primary" %>
                     <% end %>
                   </div>
                 </div>

@@ -455,3 +455,16 @@ section.widget.bg-transparent {
 #sign-in-check {
   margin-top: 15px;
 }
+
+.right {
+  float: right;
+}
+.center-block {
+  float: none;
+}
+
+.pass-form {
+  .right {
+    display: block;
+  }
+}

@@ -8,7 +8,7 @@
     <!-- need this .js class to initiate slimscroll -->
     <div class="js-sidebar-content">
         <header class="logo hidden-xs">
-            <a href=<%= root_path %>>SMU <span id="side-hide">STEM PREP</span></a>
+            <a href=<%= root_path %>>STEM <span id="side-hide">PREP</span></a>
         </header>
         <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
              looks good, so adding it and enhancing with notifications -->
@@ -27,7 +27,7 @@
                     Home
                 </a>
             </li>
-            <li <%= "class=active" if locals[:page] == 2 %>>
+            <li id="sideProfile" <%= "class=active" if locals[:page] == 2 %>>
                 <a href="/users/<%= locals[:current_user].id %>/profile">
                     <span class="icon">
                         <i class="glyphicon glyphicon-user"></i>

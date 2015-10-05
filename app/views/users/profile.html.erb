@@ -1,6 +1,7 @@
 <%= render "partials/sidebar", locals: {current_user: current_user, page: 2} %>
 <%= render "partials/headerbar", locals: {current_user: current_user, page: 2} %>
 <div class="content-wrap">
+
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
     <main id="content" class="content" role="main">
         <ol class="breadcrumb">
@@ -8,7 +9,7 @@
             <li class="active">Profile</li>
         </ol>
         <h1 class="page-title light-header">Profile
-          <% if @user == current_user %>
+          <% if @is_current %>
             <%= link_to("Edit", "#", class: "btn btn-primary btn-md edit-user-profile") %>
           <% end %>
 
@@ -24,11 +25,13 @@
                   <% else %>
                     <%= image_tag("avatar.png", class: "profile-image" ) %>
                   <% end %>
-                  <%= direct_upload_form_for @uploader, class: 'col-md-2' do |f| %>
-                    <label class="vis-label btn btn-primary btn-md col-md-7 upload-but center-block">New Picture
-                      <%= f.file_field :avatar, id: "file-up" %>
-                    </label>
-                    <%= f.submit 'Update', class: "btn btn-success btn-md sub-doc col-md-7 upload-but center-block" %>
+                  <% if @is_current %>
+                    <%= direct_upload_form_for @uploader, class: 'col-md-2' do |f| %>
+                      <label class="vis-label btn btn-primary btn-md col-md-7 upload-but center-block">New Picture
+                        <%= f.file_field :avatar, id: "file-up" %>
+                      </label>
+                      <%= f.submit 'Update', class: "btn btn-success btn-md sub-doc col-md-7 upload-but center-block" %>
+                    <% end %>
                   <% end %>
                 </div>
                 <table class="table custom-table col-md-3 col-xs-12">
@@ -77,10 +80,10 @@
                 </table>
                 </form>
               </div>
+              <script>UserProfile.init();</script>
             </section>
             </div>
           </div>
-          <%= javascript_include_tag 'edit_profile_ajax' %>
           <% end %>
         </main>
       </div>
@@ -89,3 +92,4 @@
 <div class="loader-wrap hiding hide">
     <i class="fa fa-circle-o-notch fa-spin-fast"></i>
 </div>
+

@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password][0])
       session[:user_id] = @user.id
-      today_page_visits.update_view_count
+      PageVisit.last.update_view_count
       redirect_to @user.get_home_route
     else
-      # render 'sessions/index'
+      redirect_to root_path
     end
   end
 

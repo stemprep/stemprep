@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
     @uploader = current_user.avatar
     @uploader.success_action_redirect = "https://morning-atoll-2439.herokuapp.com/users/#{current_user.id}/profile/update_picture"
     @user = User.find_by_id(params[:user_id])
+    @is_current = current_user.id == @user.id
     render 'users/profile'
   end
 

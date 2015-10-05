@@ -11,11 +11,16 @@ class UsersController < ApplicationController
     render 'users/new'
   end
 
+
+  def change_pass
+    render 'users/change_password'
+  end
+
   def create
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      # PageVisit.last.update_all
+      PageVisit.last.update_all
       redirect_to @user.get_home_route
     else
       # @errors = @user.errors.full_messages

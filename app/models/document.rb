@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  # types of documents
   belongs_to :user
   mount_uploader :document, DocumentUploader
   def self.set_full_url(key)

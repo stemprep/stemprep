@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :documents, only: [:create, :destroy, :show, :index, :new]
   end
 
+  get 'users/:user_id/change-password' => 'users#change_pass'
+
   scope :admin do
     resources :users
   end

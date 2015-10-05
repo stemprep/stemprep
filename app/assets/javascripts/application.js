@@ -21,7 +21,7 @@
 //= require settings
 //= require app
 
-//= require turbolinks
+// require turbolinks
 //= require jasny-bootstrap
 //= require jquery-pjax
 
@@ -79,9 +79,13 @@
 //= require jquery.upload/jquery.iframe-transport
 
 // require fileUpload
-
+//= require edit_profile_ajax
 
 
 // require_tree .
 
-
+// $(document).ready(function() {
+//   $("#sideProfile").on('click', function (event) {
+//     UserProfile.init();
+//   });
+// });
